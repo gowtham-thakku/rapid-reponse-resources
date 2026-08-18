@@ -1,4 +1,4 @@
-# Rapid Response Resource
+# Rapid Response Resources
 
 Resources for metagenomics sequencing: training slide decks, lab worksheets, and experimental calculation spreadsheets.
 
