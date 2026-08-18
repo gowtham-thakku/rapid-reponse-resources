@@ -13,7 +13,7 @@ Resources for metagenomics sequencing: training slide decks, lab worksheets, and
 
 <br>
 
-**Start here:** [Biohub Rapid Response mNGS Protocols](https://gowtham-thakku.github.io/rapid-reponse-resources/protocols/rapid-response-mngs-protocols/index.html)
+**Start here:** [Biohub Protocols - Illumina mNGS](https://gowtham-thakku.github.io/rapid-reponse-resources/protocols/rapid-response-mngs-protocols/index.html)
 
 <br>
 
@@ -22,7 +22,7 @@ Resources for metagenomics sequencing: training slide decks, lab worksheets, and
 
 <br>
 
-**Start here:** [Biohub Protocols — Nanopore mNGS](https://gowtham-thakku.github.io/rapid-reponse-resources/protocols/biohub-protocols-nanopore-mngs/index.html)
+**Start here:** [Biohub Protocols - Nanopore mNGS](https://gowtham-thakku.github.io/rapid-reponse-resources/protocols/biohub-protocols-nanopore-mngs/index.html)
 
 <br>
 
@@ -143,16 +143,6 @@ Resources for metagenomics sequencing: training slide decks, lab worksheets, and
 
 </td>
 </tr>
-
-<tr><td colspan="2">
-
-<br>
-
-[DL2 — Intro to CZ ID](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/dl2-intro-to-czid/index.html)
-
-<br>
-
-</td></tr>
 
 </table>
 
