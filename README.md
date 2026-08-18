@@ -33,7 +33,7 @@ Resources for metagenomics sequencing: training slide decks, lab worksheets, and
 
 <br>
 
-**1. Introduction to mNGS and Lab:** [slide deck](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/intro-to-mngs-and-lab/index.html)
+**1. Introduction to mNGS and Lab:** [Introduction to mNGS and Lab](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/intro-to-mngs-and-lab/index.html)
 
 <br>
 
@@ -43,7 +43,7 @@ Resources for metagenomics sequencing: training slide decks, lab worksheets, and
 
 <br>
 
-**2. mNGS Study Design and Sample Preparation:** [slide deck](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/mngs-study-design-and-sample-prep/index.html)
+**2. mNGS Study Design and Sample Preparation:** [mNGS Study Design and Sample Preparation](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/mngs-study-design-and-sample-prep/index.html)
 
 <br>
 
