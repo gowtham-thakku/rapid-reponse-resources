@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Illumina RNA Library Prep Worksheet — Interactive</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="home" href="../../index.html">Rapid Response Resources</a>
+    <span class="crumb">/ Worksheets / Illumina RNA Library Prep Worksheet Template</span>
+  </div>
+</header>
+<main>
+  <div class="resource-header">
+    <div>
+      <h1>Illumina RNA Library Prep Worksheet Template</h1>
+      <div class="meta">Live calculator · edit any "X =" field to rescale reagent volumes</div>
+    </div>
+    <a class="btn" href="source.xlsx">Download original .xlsx</a>
+  </div>
+  <div class="tabs">
+    <a href="index.html">Static view</a>
+    <a href="interactive.html" class="active">Interactive calculator</a>
+  </div>
+  <div id="sheet-container"></div>
+</main>
+<script src="../../assets/vendor/hyperformula.full.min.js"></script>
+<script src="../../assets/calc-sheet.js"></script>
+<script>
+  renderCalcSheet("sheet-container", "sheet-data.json");
+</script>
+</body>
+</html>

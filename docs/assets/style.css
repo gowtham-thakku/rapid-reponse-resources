@@ -1,0 +1,175 @@
+:root {
+  --bg: #f7f7f5;
+  --panel: #ffffff;
+  --text: #1f2328;
+  --muted: #57606a;
+  --border: #d8dee4;
+  --accent: #0969da;
+  --max-width: 900px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+header.site {
+  border-bottom: 1px solid var(--border);
+  background: var(--panel);
+  padding: 1rem 1.5rem;
+}
+
+header.site .inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+header.site a.home {
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+header.site .crumb {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.resource-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.resource-header h1 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.resource-header .meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.viewer-frame {
+  width: 100%;
+  height: 80vh;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+ul.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.resource-list li {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 8px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.7rem;
+}
+
+ul.resource-list a.title {
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+ul.resource-list .kind {
+  display: inline-block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  margin-left: 0.5rem;
+}
+
+table.calc-sheet {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85rem;
+  background: var(--panel);
+}
+
+table.calc-sheet td {
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.5rem;
+  vertical-align: top;
+  white-space: pre-wrap;
+}
+
+table.calc-sheet input.calc-input {
+  width: 4.5rem;
+  padding: 0.15rem 0.3rem;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  background: #eaf2fe;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.tabs a {
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.tabs a.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: #eaf2fe;
+}
+
+section.group h2 {
+  font-size: 1.05rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin: 1.5rem 0 0.6rem;
+}

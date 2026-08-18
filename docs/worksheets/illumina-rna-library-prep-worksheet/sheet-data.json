@@ -1,0 +1,1600 @@
+{
+"maxRow": 105,
+"maxCol": 5,
+"cells": {
+"0,0": {
+"v": "Illumina RNA Library Prep Worksheet",
+"bold": true
+},
+"1,0": {
+"v": "Date: 6/4/2024",
+"bold": true
+},
+"2,0": {
+"v": "\nWorkflow: 1. RNA Fragmentation + Priming; 2. first strand cDNA synthesis; 3. second strand cDNA synthesis; 4. SPRI clean-up; 5. End Prep; 6. Adapter Ligation; 7. SPRI clean-up + size selection; 8. Barcoding PCR; 9. SPRI clean-up + size selection. \n\nThese protocols are an adaptation of the NEBNext Ultra II RNA Library Preparation (non-directional) Protocol. "
+},
+"3,0": {
+"v": "1. Fragmentation + Priming",
+"bold": true
+},
+"4,0": {
+"v": "Reagent",
+"bold": true
+},
+"4,1": {
+"v": "1 rxn"
+},
+"4,2": {
+"v": "0.5 rxn"
+},
+"4,3": {
+"v": "X half rxns"
+},
+"5,3": {
+"v": "X ="
+},
+"5,4": {
+"v": 28.0
+},
+"6,1": {
+"v": "vol stock (\u00b5L)",
+"bold": true
+},
+"6,2": {
+"v": "vol stock (\u00b5L)",
+"bold": true
+},
+"6,3": {
+"v": "vol stock (\u00b5L)",
+"bold": true
+},
+"7,0": {
+"v": "RNA sample (10-100ng total)"
+},
+"7,1": {
+"v": 3.5
+},
+"7,2": {
+"v": 1.75
+},
+"8,0": {
+"v": "25pg ERCC Spike-in (50pg/uL stock)",
+"fill": "#D9D2E9"
+},
+"8,1": {
+"v": 0.5,
+"fill": "#D9D2E9"
+},
+"8,2": {
+"v": 0.25,
+"fill": "#D9D2E9"
+},
+"8,3": {
+"f": "=C9*$E$6",
+"cached": 7,
+"fill": "#D9D2E9"
+},
+"9,0": {
+"v": "(pink) First SS Rxn. Buffer 5x",
+"fill": "#D9D2E9"
+},
+"9,1": {
+"v": 4.0,
+"fill": "#D9D2E9"
+},
+"9,2": {
+"v": 2.0,
+"fill": "#D9D2E9"
+},
+"9,3": {
+"f": "=C10*$E$6",
+"cached": 56,
+"fill": "#D9D2E9"
+},
+"10,0": {
+"v": "(pink) Random Primers",
+"fill": "#D9D2E9"
+},
+"10,1": {
+"v": 1.0,
+"fill": "#D9D2E9"
+},
+"10,2": {
+"v": 0.5,
+"fill": "#D9D2E9"
+},
+"10,3": {
+"f": "=C11*$E$6",
+"cached": 14,
+"fill": "#D9D2E9"
+},
+"11,0": {
+"v": "*QIAseq FastSelect (1:10) rRNA",
+"fill": "#D9D2E9"
+},
+"11,1": {
+"v": 1.0,
+"fill": "#D9D2E9"
+},
+"11,2": {
+"v": 0.5,
+"fill": "#D9D2E9"
+},
+"11,3": {
+"f": "=C12*$E$6",
+"cached": 14,
+"fill": "#D9D2E9"
+},
+"12,0": {
+"v": "Master Mix volume",
+"fill": "#B4A7D6"
+},
+"12,1": {
+"f": "=sum(B9:B12)",
+"cached": 6.5,
+"fill": "#B4A7D6"
+},
+"12,2": {
+"f": "=sum(C9:C12)",
+"cached": 3.25,
+"fill": "#B4A7D6"
+},
+"12,3": {
+"f": "=sum(D9:E12)",
+"cached": 91,
+"fill": "#B4A7D6"
+},
+"13,0": {
+"v": "Total volume",
+"bold": true
+},
+"13,1": {
+"f": "=sum(B8:B12)",
+"cached": 10,
+"bold": true
+},
+"13,2": {
+"f": "=sum(C8:C12)",
+"cached": 5,
+"bold": true
+},
+"14,0": {
+"v": "Purple = Reagents to add to master mix",
+"fill": "#D9D2E9"
+},
+"14,3": {
+"v": "Add 3.25uL mix to RNA sample",
+"fill": "#F4CCCC"
+},
+"15,0": {
+"v": "\n*FastSelect is designed for removing human rRNA, omit this reagent if not using human derived samples and only incubate at 94\u00b0C and then directly to 4\u00b0C (omit ramping down steps). \n\nMix the master mix and final rxns by pipetting up and down.\n\nThermocycler (heated lid set to 105\u02daC):\n\u00b7       10 seconds** at 94\u00b0C\n\u00b7       2 min 75C\n\u00b7       2 min 70C\n\u00b7       2 min 65C\n\u00b7       2 min 60C\n\u00b7       2 min 55C\n\u00b7       5 min 37C\n\u00b7       5 min 25C\n\u00b7       Hold 4\u00b0C"
+},
+"16,0": {
+"v": "2. First Strand Synthesis",
+"bold": true
+},
+"17,0": {
+"v": "Reagent",
+"bold": true
+},
+"17,1": {
+"v": "1 rxn"
+},
+"17,2": {
+"v": "0.5 rxn"
+},
+"17,3": {
+"v": "X half rxns"
+},
+"18,3": {
+"v": "X ="
+},
+"18,4": {
+"v": 28.0
+},
+"19,1": {
+"v": "vol stock (\u00b5L)",
+"bold": true
+},
+"19,2": {
+"v": "vol stock (\u00b5L)",
+"bold": true
+},
+"19,3": {
+"v": "vol stock (\u00b5L)",
+"bold": true
+},
+"20,0": {
+"v": "Fragmented & primed RNA"
+},
+"20,1": {
+"v": 10.0
+},
+"20,2": {
+"v": 5.0
+},
+"20,3": {
+"v": "-"
+},
+"21,0": {
+"v": "Nuclease-free water",
+"fill": "#D9D2E9"
+},
+"21,1": {
+"v": 8.0,
+"fill": "#D9D2E9"
+},
+"21,2": {
+"v": 4.0,
+"fill": "#D9D2E9"
+},
+"21,3": {
+"f": "=C22*$E$19",
+"cached": 112,
+"fill": "#D9D2E9"
+},
+"22,0": {
+"v": "(pink) NEBNext First Strand Synthesis Enzyme Mix",
+"fill": "#D9D2E9"
+},
+"22,1": {
+"v": 2.0,
+"fill": "#D9D2E9"
+},
+"22,2": {
+"v": 1.0,
+"fill": "#D9D2E9"
+},
+"22,3": {
+"f": "=C23*$E$19",
+"cached": 28,
+"fill": "#D9D2E9"
+},
+"23,0": {
+"v": "Master Mix volume",
+"fill": "#B4A7D6"
+},
+"23,1": {
+"f": "=sum(B22:B23)",
+"cached": 10,
+"fill": "#B4A7D6"
+},
+"23,2": {
+"f": "=sum(C22:C23)",
+"cached": 5,
+"fill": "#B4A7D6"
+},
+"23,3": {
+"f": "=SUM(D21:D23)",
+"cached": 140,
+"fill": "#B4A7D6"
+},
+"24,0": {
+"v": "Total volume",
+"bold": true
+},
+"24,1": {
+"v": 20.0,
+"bold": true
+},
+"24,2": {
+"v": 10.0,
+"bold": true
+},
+"25,0": {
+"v": "Purple = Reagents to add to master mix",
+"fill": "#D9D2E9"
+},
+"25,3": {
+"v": "Add 5\u00b5L mix to frag/primed RNA",
+"fill": "#F4CCCC"
+},
+"26,0": {
+"v": "\nMix the master mix and final rxns by pipetting up and down\n\nThermocycler (heated lid set to 105\u02daC):\n\u00b7       10 mins at 25\u00b0C\n\u00b7       15 mins at 42\u00b0C\n\u00b7       15 mins at 70\u00b0C\n\u00b7       Hold at 4\u02daC"
+},
+"27,0": {
+"v": "3. Second Strand Synthesis",
+"bold": true
+},
+"28,0": {
+"v": "Reagent",
+"bold": true
+},
+"28,1": {
+"v": "1 rxn"
+},
+"28,2": {
+"v": "0.5 rxn"
+},
+"28,3": {
+"v": "X half rxns"
+},
+"29,3": {
+"v": "X ="
+},
+"29,4": {
+"v": 28.0
+},
+"30,1": {
+"v": "vol stock (uL)",
+"bold": true
+},
+"30,2": {
+"v": "vol stock (uL)",
+"bold": true
+},
+"30,3": {
+"v": "vol stock (uL)",
+"bold": true
+},
+"31,0": {
+"v": "First strand synthesized DNA"
+},
+"31,1": {
+"v": 20.0
+},
+"31,2": {
+"v": 10.0
+},
+"32,0": {
+"v": "(orange) 2nd SS Reaction buffer (10X)",
+"fill": "#FCE5CD"
+},
+"32,1": {
+"v": 8.0,
+"fill": "#FCE5CD"
+},
+"32,2": {
+"v": 4.0,
+"fill": "#FCE5CD"
+},
+"32,3": {
+"f": "=C33*$E$30",
+"cached": 112,
+"fill": "#FCE5CD"
+},
+"33,0": {
+"v": "(orange) 2nd SS enzyme mix",
+"fill": "#FCE5CD"
+},
+"33,1": {
+"v": 4.0,
+"fill": "#FCE5CD"
+},
+"33,2": {
+"v": 2.0,
+"fill": "#FCE5CD"
+},
+"33,3": {
+"f": "=C34*$E$30",
+"cached": 56,
+"fill": "#FCE5CD"
+},
+"34,0": {
+"v": "Nuclease-free water",
+"fill": "#FCE5CD"
+},
+"34,1": {
+"v": 48.0,
+"fill": "#FCE5CD"
+},
+"34,2": {
+"v": 24.0,
+"fill": "#FCE5CD"
+},
+"34,3": {
+"f": "=C35*$E$30",
+"cached": 672,
+"fill": "#FCE5CD"
+},
+"35,0": {
+"v": "Master Mix volume",
+"fill": "#F6B26B"
+},
+"35,1": {
+"f": "=sum(B33:B35)",
+"cached": 60,
+"fill": "#F6B26B"
+},
+"35,2": {
+"f": "=sum(C33:C35)",
+"cached": 30,
+"fill": "#F6B26B"
+},
+"35,3": {
+"f": "=SUM(D33:D35)",
+"cached": 840,
+"fill": "#F6B26B"
+},
+"36,0": {
+"v": "Total volume",
+"bold": true
+},
+"36,1": {
+"v": 80.0,
+"bold": true
+},
+"36,2": {
+"v": 40.0,
+"bold": true
+},
+"37,0": {
+"v": "Orange = Reagents to add to master mix",
+"fill": "#FCE5CD"
+},
+"37,3": {
+"v": "Add 30 uL mix to ss-cDNA",
+"fill": "#F4CCCC"
+},
+"38,0": {
+"v": "\nThermocycler (heated lid off):\n\u00b7       1 hour at 16\u02daC\n\u00b7       Hold at 4\u00b0C"
+},
+"39,0": {
+"v": "4. SPRI Bead Clean-up",
+"bold": true
+},
+"40,0": {
+"v": "SPRI bead ratio:"
+},
+"40,1": {
+"v": 1.8
+},
+"41,0": {
+"v": "Sample volume:"
+},
+"41,1": {
+"v": 40.0
+},
+"41,2": {
+"v": "\u00b5L"
+},
+"42,0": {
+"v": "SPRI to add:"
+},
+"42,1": {
+"f": "=C37*B41",
+"cached": 72
+},
+"42,2": {
+"v": "\u00b5L"
+},
+"43,0": {
+"v": "Elution volume:"
+},
+"43,1": {
+"v": 28.0
+},
+"43,2": {
+"v": "\u00b5L"
+},
+"44,0": {
+"v": "Aspiration volume:"
+},
+"44,1": {
+"v": 25.0
+},
+"44,2": {
+"v": "\u00b5L"
+},
+"45,0": {
+"v": "\nSPRI clean-up protocol:\n\n*allow beads to sit in RT for 30 mins prior. Ensure you have enough 80% ethanol.\n\n1. Add room temperature beads to rxn. Mix well by pipetting up and down 10 times.\n2. Incubate for 5 mins at room temperature.\n3. Place samples on magnetic rack, and incubate for 5 mins on the rack.\n4. Remove supernatant and add 200uL of 80% EtOH to samples while on the magnetic rack. \n5. Incubate at room temperature for 30s and remove the supernatant.\n6. Repeat EtOH wash step once for a total of 2 washes.\n7. Air dry the beads for 5 mins while on the magnetic rack.\n8. Remove tube from magnetic rack. Elute DNA from beads into nuclease free water (can also use 0.1x TE Buffer, 10mM Tris-HCl)\n9. Pipette mix and incubate for 2 mins at room temperature off the magnetic rack.\n10. Place on magnetic rack until solution is clear, ~ 5 mins.\n11. Aspirate supernatant and transfer to a clean nuclease free PCR tube.\n\n**Checkpoint: Samples can be stored frozen at -20 \u00b0C and library prep resumed the next day.\n"
+},
+"46,0": {
+"v": "5. End Prep of cDNA Library",
+"bold": true
+},
+"47,0": {
+"v": "Reagent",
+"bold": true
+},
+"47,1": {
+"v": "1 rxn"
+},
+"47,2": {
+"v": "0.5 rxn"
+},
+"47,3": {
+"v": "X half rxns"
+},
+"48,3": {
+"v": "X ="
+},
+"48,4": {
+"v": 28.0
+},
+"49,1": {
+"v": "vol stock (uL)",
+"bold": true
+},
+"49,2": {
+"v": "vol stock (uL)",
+"bold": true
+},
+"49,3": {
+"v": "vol stock (uL)",
+"bold": true
+},
+"50,0": {
+"v": "Purified ds-cDNA"
+},
+"50,1": {
+"v": 50.0
+},
+"50,2": {
+"v": 25.0
+},
+"51,0": {
+"v": "(green) Ultra II End Prep reaction buffer (8.6x)",
+"fill": "#D9EAD3"
+},
+"51,1": {
+"v": 7.0,
+"fill": "#D9EAD3"
+},
+"51,2": {
+"v": 3.5,
+"fill": "#D9EAD3"
+},
+"51,3": {
+"f": "=C52*$E$49",
+"cached": 98,
+"fill": "#D9EAD3"
+},
+"52,0": {
+"v": "(green) Ultra II End Prep enzyme mix",
+"fill": "#D9EAD3"
+},
+"52,1": {
+"v": 3.0,
+"fill": "#D9EAD3"
+},
+"52,2": {
+"v": 1.5,
+"fill": "#D9EAD3"
+},
+"52,3": {
+"f": "=C53*$E$49",
+"cached": 42,
+"fill": "#D9EAD3"
+},
+"53,0": {
+"v": "Master Mix volume",
+"fill": "#93C47D"
+},
+"53,1": {
+"f": "=sum(B52:B53)",
+"cached": 10,
+"fill": "#93C47D"
+},
+"53,2": {
+"f": "=sum(C52:C53)",
+"cached": 5,
+"fill": "#93C47D"
+},
+"53,3": {
+"f": "=sum(D52:E53)",
+"cached": 140,
+"fill": "#93C47D"
+},
+"54,0": {
+"v": "Total volume",
+"bold": true
+},
+"54,1": {
+"v": 60.0,
+"bold": true
+},
+"54,2": {
+"v": 30.0,
+"bold": true
+},
+"55,0": {
+"v": "Green = Reagents to add to master mix",
+"fill": "#D9EAD3"
+},
+"55,3": {
+"v": "Add 5uL mix to ds-cDNA",
+"fill": "#F4CCCC"
+},
+"56,0": {
+"v": "\nThermocycler (heated lid set to 105\u02daC):\n\u00b7       30 mins at 20\u02daC\n\u00b7       30 mins at 65\u02daC\n\u00b7       Hold at 4\u02daC"
+},
+"57,0": {
+"v": "6. Adapter Ligation",
+"bold": true
+},
+"58,0": {
+"v": "\nPrepare mini adapter prior to making master mix. Different than classic adaptor, mini adapter may be used at 3uM regardless of the amount of sample input\n\nAdd adaptor separately after ligation master mix and ligation enhancer to avoid adaptor dimers.\n"
+},
+"59,0": {
+"v": "Reagent",
+"bold": true
+},
+"59,1": {
+"v": "1 rxn"
+},
+"59,2": {
+"v": "0.5 rxn"
+},
+"59,3": {
+"v": "X half rxns"
+},
+"60,3": {
+"v": "X ="
+},
+"60,4": {
+"v": 28.0
+},
+"61,1": {
+"v": "vol stock (uL)",
+"bold": true
+},
+"61,2": {
+"v": "vol stock (uL)",
+"bold": true
+},
+"61,3": {
+"v": "vol stock (uL)",
+"bold": true
+},
+"62,0": {
+"v": "End Prep reaction mixture"
+},
+"62,1": {
+"v": 60.0
+},
+"62,2": {
+"v": 30.0
+},
+"63,0": {
+"v": "(red) NEBNext Ultra II ligation master mix",
+"fill": "#F4CCCC"
+},
+"63,1": {
+"v": 30.0,
+"fill": "#F4CCCC"
+},
+"63,2": {
+"v": 15.0,
+"fill": "#F4CCCC"
+},
+"63,3": {
+"f": "=C64*$E$61",
+"cached": 420,
+"fill": "#F4CCCC"
+},
+"64,0": {
+"v": "(red) NEBNext ligation enhancer",
+"fill": "#F4CCCC"
+},
+"64,1": {
+"v": 1.0,
+"fill": "#F4CCCC"
+},
+"64,2": {
+"v": 0.5,
+"fill": "#F4CCCC"
+},
+"64,3": {
+"f": "=C65*$E$61",
+"cached": 14,
+"fill": "#F4CCCC"
+},
+"65,0": {
+"v": "3uM TS mini adapter"
+},
+"65,1": {
+"v": 2.5
+},
+"65,2": {
+"v": 1.25
+},
+"65,3": {
+"v": "** do not premix"
+},
+"66,0": {
+"v": "Master Mix volume",
+"fill": "#EA9999"
+},
+"66,1": {
+"f": "=sum(B64:B65)",
+"cached": 31,
+"fill": "#EA9999"
+},
+"66,2": {
+"f": "=sum(C64:C65)",
+"cached": 15.5,
+"fill": "#EA9999"
+},
+"66,3": {
+"f": "=sum(D64:D65)",
+"cached": 434,
+"fill": "#EA9999"
+},
+"67,0": {
+"v": "Total volume",
+"bold": true
+},
+"67,1": {
+"v": 93.5,
+"bold": true
+},
+"67,2": {
+"v": 46.75,
+"bold": true
+},
+"68,0": {
+"v": "Pink = Reagents to add to master mix",
+"fill": "#F4CCCC"
+},
+"68,3": {
+"v": "Add 15.5 uL MM + LE to end prep mixture, then 1.25uL adaptor",
+"fill": "#F4CCCC"
+},
+"69,0": {
+"v": "\nThermocycler (heated lid off):\n\u00b7   \t15 mins at 20\u02daC with heated lid off\n\u00b7   \tProceed immediately to Bead Purification. "
+},
+"70,0": {
+"v": "7. SPRI Bead Clean-up and Size Selection",
+"bold": true
+},
+"71,0": {
+"v": "SPRI bead ratio:"
+},
+"71,1": {
+"v": 0.9
+},
+"72,0": {
+"v": "Sample volume:"
+},
+"72,1": {
+"v": 46.75
+},
+"72,2": {
+"v": "\u00b5L"
+},
+"73,0": {
+"v": "SPRI to add (per half rxn):"
+},
+"73,1": {
+"f": "=C68*B72",
+"cached": 42.075
+},
+"73,2": {
+"v": "\u00b5L"
+},
+"74,0": {
+"v": "Elution volume (per half rxn):"
+},
+"74,1": {
+"v": 9.0
+},
+"74,2": {
+"v": "\u00b5L"
+},
+"75,0": {
+"v": "Aspiration volume (per half rxn):"
+},
+"75,1": {
+"v": 7.5
+},
+"75,2": {
+"v": "\u00b5L"
+},
+"76,0": {
+"v": "\n*See Step 4 for SPRI clean-up protocol\n\n**Checkpoint: Samples can be stored frozen at -20 \u00b0C and library prep resumed the next day.\n"
+},
+"77,0": {
+"v": "8. Barcoding PCR",
+"bold": true
+},
+"78,0": {
+"v": "Reagent",
+"bold": true
+},
+"78,1": {
+"v": "1 rxn"
+},
+"78,2": {
+"v": "0.5 rxn"
+},
+"78,3": {
+"v": "X half rxns"
+},
+"79,3": {
+"v": "X ="
+},
+"79,4": {
+"v": 28.0
+},
+"80,1": {
+"v": "vol stock (ul)",
+"bold": true
+},
+"80,2": {
+"v": "vol stock (ul)",
+"bold": true
+},
+"80,3": {
+"v": "vol stock (ul)",
+"bold": true
+},
+"81,0": {
+"v": "Purified, adaptor-ligated cDNA"
+},
+"81,1": {
+"v": 15.0
+},
+"81,2": {
+"v": 7.5
+},
+"82,0": {
+"v": "(white) USER Enzyme (Cat no. M5505L, 250uL)",
+"fill": "#CFE2F3"
+},
+"82,1": {
+"v": 3.0,
+"fill": "#CFE2F3"
+},
+"82,2": {
+"v": 1.5,
+"fill": "#CFE2F3"
+},
+"83,0": {
+"v": "(blue) NEBNext Ultra II Q5 master mix",
+"fill": "#CFE2F3"
+},
+"83,1": {
+"v": 25.0,
+"fill": "#CFE2F3"
+},
+"83,2": {
+"v": 12.5,
+"fill": "#CFE2F3"
+},
+"83,3": {
+"f": "=C84*$E$80",
+"cached": 350,
+"fill": "#CFE2F3"
+},
+"84,0": {
+"v": "5uM i7 barcoded primer (NEB index primer/TruSeq/or similar)"
+},
+"84,1": {
+"v": "10 (*premixed)"
+},
+"84,2": {
+"v": "5 (*premixed)"
+},
+"84,3": {
+"v": "5 \u00b5l unique to each sample"
+},
+"85,0": {
+"v": "5uM i5 barcoded primer (NEB Universal primer/TruSeq/or similar)"
+},
+"86,0": {
+"v": "Master Mix volume",
+"fill": "#6FA8DC"
+},
+"86,1": {
+"f": "=sum(B83:B84)",
+"cached": 28,
+"fill": "#6FA8DC"
+},
+"86,2": {
+"f": "=sum(C84)",
+"cached": 12.5,
+"fill": "#6FA8DC"
+},
+"86,3": {
+"f": "=sum(D83:E84)",
+"cached": 350,
+"fill": "#6FA8DC"
+},
+"87,0": {
+"v": "Total volume",
+"bold": true
+},
+"87,1": {
+"v": 53.0,
+"bold": true
+},
+"87,2": {
+"v": 26.5,
+"bold": true
+},
+"88,0": {
+"v": "Pink = Reagents to add to master mix",
+"fill": "#CFE2F3"
+},
+"88,3": {
+"v": "Add 12.5 uL Q5 mix + 5\u00b5L of primers to adaptor-ligated cDNA",
+"fill": "#F4CCCC"
+},
+"89,0": {
+"v": "\n* See here for adaptor barcode assignments\n\n",
+"fill": "#FFFFFF"
+},
+"90,0": {
+"v": "Thermocycler (lid at 105\u02daC)",
+"bold": true,
+"fill": "#FFFFFF"
+},
+"90,1": {
+"v": "Cycles",
+"bold": true
+},
+"91,0": {
+"v": "37 \u00b0C for 15 mins"
+},
+"91,1": {
+"v": 1.0
+},
+"92,0": {
+"v": "98 \u00b0C for 30s"
+},
+"92,1": {
+"v": 1.0
+},
+"93,0": {
+"v": "98 \u00b0C for 10s"
+},
+"93,1": {
+"v": "6-19**"
+},
+"94,0": {
+"v": "65 \u00b0C for 75s"
+},
+"95,0": {
+"v": "65\u02daC for 5 mins"
+},
+"95,1": {
+"v": 1.0
+},
+"96,0": {
+"v": "Hold at 4\u02daC"
+},
+"97,0": {
+"v": "** PCR cycles are dependent on the input RNA. For libraries with <5ng input, perform 15-19 cycles of PCR. For 5-20ng input, perform 10-14 cycles of PCR. For >20ng input, perform 6-8 cycles of PCR."
+},
+"98,0": {
+"v": "9. SPRI Bead Clean-up and Size Selection",
+"bold": true
+},
+"99,0": {
+"v": "SPRI bead ratio:"
+},
+"99,1": {
+"v": 0.8
+},
+"100,0": {
+"v": "Sample volume:"
+},
+"100,1": {
+"v": 46.75
+},
+"100,2": {
+"v": "\u00b5L"
+},
+"101,0": {
+"v": "SPRI to add:"
+},
+"101,1": {
+"f": "=C88*B100",
+"cached": 21.2
+},
+"101,2": {
+"v": "\u00b5L"
+},
+"102,0": {
+"v": "Elution volume:"
+},
+"102,1": {
+"v": 23.0
+},
+"102,2": {
+"v": "\u00b5L"
+},
+"103,0": {
+"v": "Aspiration volume:"
+},
+"103,1": {
+"v": 20.0
+},
+"103,2": {
+"v": "\u00b5L"
+},
+"104,0": {
+"v": "*See Step 4 for SPRI clean-up protocol\n**Checkpoint: Samples can be stored frozen at -20 \u00b0C and library prep resumed the next day."
+}
+},
+"merges": [
+{
+"r1": 38,
+"c1": 0,
+"r2": 38,
+"c2": 4
+},
+{
+"r1": 19,
+"c1": 3,
+"r2": 19,
+"c2": 4
+},
+{
+"r1": 59,
+"c1": 3,
+"r2": 59,
+"c2": 4
+},
+{
+"r1": 78,
+"c1": 2,
+"r2": 79,
+"c2": 2
+},
+{
+"r1": 28,
+"c1": 2,
+"r2": 29,
+"c2": 2
+},
+{
+"r1": 28,
+"c1": 0,
+"r2": 30,
+"c2": 0
+},
+{
+"r1": 83,
+"c1": 3,
+"r2": 83,
+"c2": 4
+},
+{
+"r1": 0,
+"c1": 0,
+"r2": 0,
+"c2": 4
+},
+{
+"r1": 21,
+"c1": 3,
+"r2": 21,
+"c2": 4
+},
+{
+"r1": 35,
+"c1": 3,
+"r2": 35,
+"c2": 4
+},
+{
+"r1": 30,
+"c1": 3,
+"r2": 30,
+"c2": 4
+},
+{
+"r1": 28,
+"c1": 1,
+"r2": 29,
+"c2": 1
+},
+{
+"r1": 12,
+"c1": 3,
+"r2": 12,
+"c2": 4
+},
+{
+"r1": 45,
+"c1": 0,
+"r2": 45,
+"c2": 4
+},
+{
+"r1": 47,
+"c1": 3,
+"r2": 47,
+"c2": 4
+},
+{
+"r1": 104,
+"c1": 0,
+"r2": 104,
+"c2": 4
+},
+{
+"r1": 56,
+"c1": 0,
+"r2": 56,
+"c2": 4
+},
+{
+"r1": 6,
+"c1": 3,
+"r2": 6,
+"c2": 4
+},
+{
+"r1": 70,
+"c1": 0,
+"r2": 70,
+"c2": 4
+},
+{
+"r1": 61,
+"c1": 3,
+"r2": 61,
+"c2": 4
+},
+{
+"r1": 55,
+"c1": 3,
+"r2": 55,
+"c2": 4
+},
+{
+"r1": 23,
+"c1": 3,
+"r2": 23,
+"c2": 4
+},
+{
+"r1": 63,
+"c1": 3,
+"r2": 63,
+"c2": 4
+},
+{
+"r1": 32,
+"c1": 3,
+"r2": 32,
+"c2": 4
+},
+{
+"r1": 50,
+"c1": 3,
+"r2": 50,
+"c2": 4
+},
+{
+"r1": 87,
+"c1": 3,
+"r2": 87,
+"c2": 4
+},
+{
+"r1": 25,
+"c1": 3,
+"r2": 25,
+"c2": 4
+},
+{
+"r1": 34,
+"c1": 3,
+"r2": 34,
+"c2": 4
+},
+{
+"r1": 76,
+"c1": 0,
+"r2": 76,
+"c2": 4
+},
+{
+"r1": 9,
+"c1": 3,
+"r2": 9,
+"c2": 4
+},
+{
+"r1": 33,
+"c1": 3,
+"r2": 33,
+"c2": 4
+},
+{
+"r1": 4,
+"c1": 0,
+"r2": 6,
+"c2": 0
+},
+{
+"r1": 84,
+"c1": 2,
+"r2": 85,
+"c2": 2
+},
+{
+"r1": 77,
+"c1": 0,
+"r2": 77,
+"c2": 4
+},
+{
+"r1": 10,
+"c1": 3,
+"r2": 10,
+"c2": 4
+},
+{
+"r1": 59,
+"c1": 1,
+"r2": 60,
+"c2": 1
+},
+{
+"r1": 84,
+"c1": 3,
+"r2": 85,
+"c2": 4
+},
+{
+"r1": 65,
+"c1": 3,
+"r2": 65,
+"c2": 4
+},
+{
+"r1": 52,
+"c1": 3,
+"r2": 52,
+"c2": 4
+},
+{
+"r1": 2,
+"c1": 0,
+"r2": 2,
+"c2": 4
+},
+{
+"r1": 59,
+"c1": 2,
+"r2": 60,
+"c2": 2
+},
+{
+"r1": 59,
+"c1": 0,
+"r2": 61,
+"c2": 0
+},
+{
+"r1": 36,
+"c1": 3,
+"r2": 36,
+"c2": 4
+},
+{
+"r1": 8,
+"c1": 3,
+"r2": 8,
+"c2": 4
+},
+{
+"r1": 78,
+"c1": 1,
+"r2": 79,
+"c2": 1
+},
+{
+"r1": 3,
+"c1": 0,
+"r2": 3,
+"c2": 4
+},
+{
+"r1": 14,
+"c1": 1,
+"r2": 14,
+"c2": 2
+},
+{
+"r1": 14,
+"c1": 3,
+"r2": 14,
+"c2": 4
+},
+{
+"r1": 28,
+"c1": 3,
+"r2": 28,
+"c2": 4
+},
+{
+"r1": 22,
+"c1": 3,
+"r2": 22,
+"c2": 4
+},
+{
+"r1": 93,
+"c1": 1,
+"r2": 94,
+"c2": 1
+},
+{
+"r1": 37,
+"c1": 3,
+"r2": 37,
+"c2": 4
+},
+{
+"r1": 88,
+"c1": 3,
+"r2": 88,
+"c2": 4
+},
+{
+"r1": 57,
+"c1": 0,
+"r2": 57,
+"c2": 4
+},
+{
+"r1": 17,
+"c1": 2,
+"r2": 18,
+"c2": 2
+},
+{
+"r1": 39,
+"c1": 0,
+"r2": 39,
+"c2": 4
+},
+{
+"r1": 78,
+"c1": 3,
+"r2": 78,
+"c2": 4
+},
+{
+"r1": 17,
+"c1": 0,
+"r2": 19,
+"c2": 0
+},
+{
+"r1": 4,
+"c1": 2,
+"r2": 5,
+"c2": 2
+},
+{
+"r1": 17,
+"c1": 1,
+"r2": 18,
+"c2": 1
+},
+{
+"r1": 62,
+"c1": 3,
+"r2": 62,
+"c2": 4
+},
+{
+"r1": 80,
+"c1": 3,
+"r2": 80,
+"c2": 4
+},
+{
+"r1": 64,
+"c1": 3,
+"r2": 64,
+"c2": 4
+},
+{
+"r1": 51,
+"c1": 3,
+"r2": 51,
+"c2": 4
+},
+{
+"r1": 15,
+"c1": 0,
+"r2": 15,
+"c2": 4
+},
+{
+"r1": 78,
+"c1": 0,
+"r2": 80,
+"c2": 0
+},
+{
+"r1": 46,
+"c1": 0,
+"r2": 46,
+"c2": 4
+},
+{
+"r1": 47,
+"c1": 2,
+"r2": 48,
+"c2": 2
+},
+{
+"r1": 11,
+"c1": 3,
+"r2": 11,
+"c2": 4
+},
+{
+"r1": 82,
+"c1": 3,
+"r2": 82,
+"c2": 4
+},
+{
+"r1": 24,
+"c1": 3,
+"r2": 24,
+"c2": 4
+},
+{
+"r1": 54,
+"c1": 3,
+"r2": 54,
+"c2": 4
+},
+{
+"r1": 66,
+"c1": 3,
+"r2": 66,
+"c2": 4
+},
+{
+"r1": 27,
+"c1": 0,
+"r2": 27,
+"c2": 4
+},
+{
+"r1": 4,
+"c1": 3,
+"r2": 4,
+"c2": 4
+},
+{
+"r1": 13,
+"c1": 3,
+"r2": 13,
+"c2": 4
+},
+{
+"r1": 84,
+"c1": 1,
+"r2": 85,
+"c2": 1
+},
+{
+"r1": 53,
+"c1": 3,
+"r2": 53,
+"c2": 4
+},
+{
+"r1": 68,
+"c1": 3,
+"r2": 68,
+"c2": 4
+},
+{
+"r1": 58,
+"c1": 0,
+"r2": 58,
+"c2": 4
+},
+{
+"r1": 97,
+"c1": 0,
+"r2": 97,
+"c2": 4
+},
+{
+"r1": 69,
+"c1": 0,
+"r2": 69,
+"c2": 4
+},
+{
+"r1": 20,
+"c1": 3,
+"r2": 20,
+"c2": 4
+},
+{
+"r1": 47,
+"c1": 1,
+"r2": 48,
+"c2": 1
+},
+{
+"r1": 89,
+"c1": 0,
+"r2": 89,
+"c2": 4
+},
+{
+"r1": 98,
+"c1": 0,
+"r2": 98,
+"c2": 4
+},
+{
+"r1": 31,
+"c1": 3,
+"r2": 31,
+"c2": 4
+},
+{
+"r1": 26,
+"c1": 0,
+"r2": 26,
+"c2": 4
+},
+{
+"r1": 86,
+"c1": 3,
+"r2": 86,
+"c2": 4
+},
+{
+"r1": 47,
+"c1": 0,
+"r2": 49,
+"c2": 0
+},
+{
+"r1": 17,
+"c1": 3,
+"r2": 17,
+"c2": 4
+},
+{
+"r1": 16,
+"c1": 0,
+"r2": 16,
+"c2": 4
+},
+{
+"r1": 4,
+"c1": 1,
+"r2": 5,
+"c2": 1
+},
+{
+"r1": 7,
+"c1": 3,
+"r2": 7,
+"c2": 4
+},
+{
+"r1": 67,
+"c1": 3,
+"r2": 67,
+"c2": 4
+},
+{
+"r1": 81,
+"c1": 3,
+"r2": 81,
+"c2": 4
+},
+{
+"r1": 49,
+"c1": 3,
+"r2": 49,
+"c2": 4
+}
+],
+"colWidths": {
+"A": 25.13,
+"D": 4.13,
+"E": 8.25
+}
+}
