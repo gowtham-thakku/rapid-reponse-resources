@@ -75,7 +75,7 @@ Resources for metagenomics sequencing: training slide decks, lab worksheets, and
 
 <br>
 
-[Illumina RNA Library Prep Worksheet Template](https://gowtham-thakku.github.io/rapid-reponse-resources/worksheets/illumina-rna-library-prep-worksheet/index.html)
+[RNA and DNA Library Preparation for mNGS](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/rna-dna-library-preparation-for-mngs/index.html)
 
 <br>
 
@@ -83,6 +83,8 @@ Resources for metagenomics sequencing: training slide decks, lab worksheets, and
 <td>
 
 <br>
+
+[Library Prep for ONT](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/library-prep-for-ont/index.html)
 
 <br>
 
@@ -94,7 +96,7 @@ Resources for metagenomics sequencing: training slide decks, lab worksheets, and
 
 <br>
 
-[Library Pooling Calculations](https://gowtham-thakku.github.io/rapid-reponse-resources/spreadsheets/library-pooling-calculations/index.html)
+[Library Prep QC](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/library-prep-qc/index.html)
 
 <br>
 
@@ -102,6 +104,40 @@ Resources for metagenomics sequencing: training slide decks, lab worksheets, and
 <td>
 
 <br>
+
+[Library Prep QC for ONT](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/library-prep-qc-for-ont/index.html)
+
+<br>
+
+</td>
+</tr>
+
+<tr><td colspan="2">
+
+<br>
+
+[Sequencing Run QC](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/sequencing-run-qc/index.html)
+
+<br>
+
+</td></tr>
+
+<tr>
+<td>
+
+<br>
+
+- [iSeq 100 Loading](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/iseq-100-loading/index.html)
+- [MiSeq Loading](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/miseq-loading/index.html)
+
+<br>
+
+</td>
+<td>
+
+<br>
+
+[MinION Loading and Sequencing Run Setup](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/minion-loading-and-sequencing-run-setup/index.html)
 
 <br>
 
@@ -119,6 +155,11 @@ Resources for metagenomics sequencing: training slide decks, lab worksheets, and
 </td></tr>
 
 </table>
+
+## Worksheets
+
+- [DNase Treatment](https://gowtham-thakku.github.io/rapid-reponse-resources/worksheets/dnase-treatment/index.html)
+- [Illumina RNA Library Prep Worksheet Template](https://gowtham-thakku.github.io/rapid-reponse-resources/worksheets/illumina-rna-library-prep-worksheet/index.html)
 
 ---
 
