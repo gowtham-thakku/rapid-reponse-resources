@@ -21,6 +21,32 @@
       "source": "resources/spreadsheets/5. Library Pooling Calculations.xlsx",
       "docsDir": "docs/spreadsheets/library-pooling-calculations",
       "type": "xlsx-static"
+    },
+    {
+      "source": "resources/protocols/Biohub Protocols_ Nanopore mNGS.docx",
+      "docsDir": "docs/protocols/biohub-protocols-nanopore-mngs",
+      "type": "docx",
+      "extraCss": "body, p, h1, h2, font, td, th, li { font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif !important; }"
+    },
+    {
+      "source": "resources/slides/1.Introduction to mNGS and lab.pptx",
+      "docsDir": "docs/slides/intro-to-mngs-and-lab",
+      "type": "pptx"
+    },
+    {
+      "source": "resources/slides/2. mNGS study design and sample preparation.pptx",
+      "docsDir": "docs/slides/mngs-study-design-and-sample-prep",
+      "type": "pptx"
+    },
+    {
+      "source": "resources/slides/3.mNGS Illumina sequencing and data analysis intro.pptx",
+      "docsDir": "docs/slides/illumina-sequencing-and-data-analysis-intro",
+      "type": "pptx"
+    },
+    {
+      "source": "resources/slides/Intro to Nanopore Sequencing.pptx",
+      "docsDir": "docs/slides/intro-to-nanopore-sequencing",
+      "type": "pptx"
     }
   ]
 }

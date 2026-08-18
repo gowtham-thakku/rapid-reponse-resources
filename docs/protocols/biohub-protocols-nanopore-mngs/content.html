@@ -1,0 +1,1992 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 26.2.5.2 (MacOSX)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		body, p, h1, h2, font, td, th, li { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important; }
+
+		@page { size: 8.5in 11in; margin-left: 1in; margin-right: 1in; margin-top: 0.5in; margin-bottom: 0.5in }
+		p { direction: ltr; widows: 2; orphans: 2; margin-bottom: 0.1in; text-align: left; line-height: 115%; background: transparent }
+		h1 { direction: ltr; widows: 2; page-break-inside: avoid; text-align: left; line-height: 115%; margin-top: 0in; margin-bottom: 0in; font-size: 14pt; font-weight: bold; orphans: 2; background: transparent; page-break-after: avoid }
+		a:link { color: #000080; text-decoration: underline }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr">
+<div title="header"><p style="margin-bottom: 0in">ONT Metagenomics 
+	</p>
+	<p align="right" style="margin-bottom: 0.46in">Last Updated: March
+	2, 2026</p>
+</div><p align="center" style="margin-bottom: 0.04in; line-height: 100%; page-break-inside: avoid; page-break-before: auto; page-break-after: avoid"><a name="_k3kdvfip77tz"></a>
+<font size="6" style="font-size: 26pt"><font size="5" style="font-size: 20pt">Biohub
+Protocols: Nanopore Metagenomics (mNGS)</font></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">This document contains Oxford Nanopore
+specific protocols for performing metagenomics sequencing. For
+details on sample collection and storage, please refer to <a href="https://docs.google.com/document/d/1RtNQc1D4or_ys7OxCCBjh4SDIdy7JaI4IE7if8EkHgE/edit#bookmark=id.ie7jj5g6q2f7"><font color="#1155cc"><u>Section
+1 of our mNGS protocol</u></font></a> (external link.)</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><b>Considerations</b>:</p>
+<ul>
+	<li><p style="margin-bottom: 0in">Consider whether DNA or RNA
+	metagenomics is most appropriate for your application. RNA mNGS can
+	still identify DNA pathogens, (potentially with less sensitivity),
+	but DNA mNGS will always miss RNA viruses.</p></li>
+	<li><p style="margin-bottom: 0in">Nucleic acid input amounts &lt;1ng
+	to about 20 ng have been tested. Anecdotally, we’ve observed
+	poorer performance with very high input (&gt;100 ng.) If this is the
+	case, dilute your sample.</p></li>
+	<li><p style="margin-bottom: 0in">For host derived samples (which
+	have lower nucleic acid input than environmental samples or
+	isolates), we recommend using the ONT <a href="https://store.nanoporetech.com/us/rapid-pcr-barcoding-kit-24-v14.html"><font color="#1155cc"><u>Rapid
+	PCR Barcoding kit</u></font></a> (SQK-RPB114.24). 
+	</p>
+	<ul>
+		<li><p style="margin-bottom: 0in">This kit uses the Kit 14
+		chemistry and is compatible with the 10.4.1 flow cell (FLO-MIN114)
+		on the MinION Mk1B, MinION Mk1C, MinION Mk1D, or GridION. 
+		</p></li>
+	</ul>
+	<li><p style="margin-bottom: 0in">It is critical, especially for RNA
+	mNGS, that the samples are high quality with little to no
+	degradation.</p></li>
+	<li><p style="margin-bottom: 0in">For DNA mNGS, the protocol is a
+	direct adaptation from the manufacturer’s protocol for the <a href="https://store.nanoporetech.com/us/rapid-pcr-barcoding-kit-24-v14.html"><font color="#1155cc"><u>Rapid
+	PCR Barcoding kit</u></font></a> (SQK-RPB114.24). 
+	</p></li>
+	<li><p style="margin-bottom: 0in">For RNA mNGS, we now (as of late
+	2025) recommend using the viral RNA portion of <a href="https://nanoporetech.com/document/rapid-sequencing-metagenomics-sqk-rpb114-24"><font color="#1155cc"><u>ONT’s
+	rapid metagenomics sequencing protocol</u></font></a>. (Which is a
+	modified version of the <a href="https://www.protocols.io/view/viral-metagenomics-using-smart-9n-amplification-an-j8nlke5wwl5r/v1"><font color="#1155cc"><u>SMART-9N
+	protocol</u></font></a>)</p></li>
+	<li><p style="margin-bottom: 0in">ONT’s protocol suggests loading
+	50-100 fmol of library, but we have found that loading a higher
+	concentration (100-200 fmol) works better, especially for RNA mNGS</p></li>
+</ul>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Please reach out to Gowtham Thakku
+(gowtham.thakku@czbiohub.org) for more details, questions, or
+explanations.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><b>Workflow:</b></p>
+<ol>
+	<li><p style="margin-bottom: 0in"><a href="https://docs.google.com/document/d/1RtNQc1D4or_ys7OxCCBjh4SDIdy7JaI4IE7if8EkHgE/edit#bookmark=id.ie7jj5g6q2f7"><font color="#1155cc"><u>Sample
+	Collection, Storage, and Preparation</u></font></a> (external link)</p></li>
+	<li><p style="margin-bottom: 0in"><a href="https://docs.google.com/document/d/1RtNQc1D4or_ys7OxCCBjh4SDIdy7JaI4IE7if8EkHgE/edit#bookmark=id.66mndty672ps"><font color="#1155cc"><u>Nucleic
+	Acid Extractions</u></font></a> (external link)</p></li>
+	<li><p style="margin-bottom: 0in"><a href="https://docs.google.com/document/d/1RtNQc1D4or_ys7OxCCBjh4SDIdy7JaI4IE7if8EkHgE/edit#bookmark=id.vb4yj6mk3dp7"><font color="#1155cc"><u>Nucleic
+	Acid Quality Control (QC)</u></font></a> (external link)</p></li>
+	<li><p style="margin-bottom: 0in">ONT Library Preparation</p>
+	<ol type="a">
+		<li><p style="margin-bottom: 0in"><a href="#uv7wbdwkx0sp"><font color="#1155cc"><u>DNA
+		library preparation</u></font></a></p></li>
+		<li><p style="margin-bottom: 0in"><a href="#nm0oge2dvnkp"><font color="#1155cc"><u>RNA
+		library preparation</u></font></a></p></li>
+	</ol>
+	<li><p style="margin-bottom: 0in"><a href="#mfnl2phpskj"><font color="#1155cc"><u>Library
+	QC &amp; Pooling</u></font></a></p></li>
+	<li><p style="margin-bottom: 0in"><a href="#m6qnfjmyk5vc"><font color="#1155cc"><u>Adapter
+	Ligation</u></font></a></p></li>
+	<li><p style="margin-bottom: 0in"><a href="#im4q85oy4ilj"><font color="#1155cc"><u>Priming
+	and loading Spoton flow cell</u></font></a></p></li>
+	<li><p style="margin-bottom: 0in"><a href="#2jfvvu8xpni9"><font color="#1155cc"><u>Concatenating
+	FASTQ files</u></font></a></p></li>
+	<li><p style="margin-bottom: 0in"><a href="#ptp9j8r3adkd"><font color="#1155cc"><u>Barcode
+	bleeding and mid-read trimming</u></font></a></p></li>
+	<li><p style="margin-bottom: 0in"><a href="#hwnynbtotxg0"><font color="#1155cc"><u>Visualization
+	of CZ ID data</u></font></a></p></li>
+</ol>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><b>Appendix</b>:</p>
+<ol type="A">
+	<li><p style="margin-bottom: 0in"><a href="#dg67bvylw9zl"><font color="#1155cc"><u>Reagent
+	catalog numbers</u></font></a></p></li>
+	<li><p style="margin-bottom: 0in"><a href="#divtvn9qvffe"><font color="#1155cc"><u>Diagnostic
+	PCR</u></font></a></p></li>
+	<li><p style="margin-bottom: 0in"><a href="#t5a7g2ot5h2j"><font color="#1155cc"><u>Links
+	to additional resources</u></font></a></p></li>
+	<li><p style="margin-bottom: 0in"><a href="#8v5yso80xy8c"><font color="#1155cc"><u>Document
+	revision history</u></font></a></p></li>
+</ol>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<h1><a name="_msgp7ktco472"></a><a name="uv7wbdwkx0sp"></a>4a. ONT
+Library Preparation - DNA Libraries</h1>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">This protocol assumes you have
+extracted and quantified DNA ready for library preparation. For
+details on DNA extraction and quantification, please refer to <a href="https://docs.google.com/document/d/1RtNQc1D4or_ys7OxCCBjh4SDIdy7JaI4IE7if8EkHgE/edit#bookmark=id.66mndty672ps"><font color="#1155cc"><u>Section
+2 of our mNGS protocol</u></font></a>.</p>
+<p style="margin-bottom: 0in"> 
+</p>
+<p style="margin-bottom: 0in"><b>Workflow: </b>DNA Tagmentation, PCR
+Amplification, SPRI Bead Clean-up, Pooling, Adapter Ligation</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><b>Considerations:</b></p>
+<ul>
+	<li><p style="margin-bottom: 0in">All steps up to setting up of PCR
+	amplification should be done in a pre-PCR space, ideally in a
+	sterile clean hood. 
+	</p></li>
+	<li><p style="margin-bottom: 0in">Reactions should be done in
+	sterile RNAse/ DNAse/ DNA-free tubes.</p></li>
+</ul>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><b>Protocol: </b>These protocols are an
+adaptation of the <font color="#1155cc"><u><a href="https://store.nanoporetech.com/us/rapid-pcr-barcoding-kit-24-v14.html">Oxford
+Nanopore </a><a href="https://store.nanoporetech.com/us/rapid-pcr-barcoding-kit-24-v14.html">Rapid
+sequencing DNA  PCR Barcoding kit</a></u></font> 
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="581" cellpadding="3" cellspacing="0">
+	<col width="174"/>
+	<col width="94"/>
+	<col width="94"/>
+	<col width="94"/>
+	<col width="93"/>
+	<tr>
+		<td colspan="5" width="573" height="20" valign="bottom" style="border-top: 1px solid #ffffff; border-bottom: 1px solid #000000; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<b>Step 1. DNA Tagmentation</b></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td rowspan="3" width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Reagent</b></font></p>
+		</td>
+		<td rowspan="2" width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1 rxn</font></p>
+		</td>
+		<td rowspan="2" width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">0.5 rxn</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">X rxns</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #ffffff; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">X =</font></p>
+		</td>
+		<td width="93" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+		<td colspan="2" width="193" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">DNA sample (1-5 ng total)</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">3</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Fragmentation Mix (FRM)</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">0.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="14" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Total volume</b></font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>4</b></font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>2</b></font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font size="2" style="font-size: 10pt">Mix
+by gently flicking the tube, and spin down</font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font size="2" style="font-size: 10pt">Thermocycler
+(heated lid set to 90˚C):</font></p>
+<p style="margin-bottom: 0in"><font size="2" style="font-size: 10pt">·
+      2 min at 30°C</font></p>
+<p style="margin-bottom: 0in"><font size="2" style="font-size: 10pt">·
+      2 min at 80°C</font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font size="2" style="font-size: 10pt">Place
+on ice to cool down</font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="581" cellpadding="3" cellspacing="0">
+	<col width="174"/>
+	<col width="94"/>
+	<col width="94"/>
+	<col width="94"/>
+	<col width="93"/>
+	<tr>
+		<td colspan="5" width="573" height="20" valign="bottom" style="border-top: 1px solid #ffffff; border-bottom: 1px solid #000000; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<b>Step 2. PCR Amplification</b></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td rowspan="3" width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Reagent</b></font></p>
+		</td>
+		<td rowspan="2" width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1 rxn</font></p>
+		</td>
+		<td rowspan="2" width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">0.5 rxn</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">X rxns</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #ffffff; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">X =</font></p>
+		</td>
+		<td width="93" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+		<td colspan="2" width="193" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Tagmented DNA</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">4</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">2</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Nuclease-free water</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">11</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">5.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">RLB (01-12A, at 1 µM)</font><font size="2" style="font-size: 10pt"><b>*</b></font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">10</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">5</font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Unique to each sample*</font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">LongAmp Taq 2x MM</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">25</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">12.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="14" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Total volume</b></font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>50</b></font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>25</b></font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font size="2" style="font-size: 10pt"><b>*RLB
+primer is at 1 µM in plate format; if shipped in tubes, it’s at 10
+µM stock concentration and needs to be diluted 1:10 using
+nuclease-free water</b></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font size="2" style="font-size: 10pt">Mix
+MM and final rxn. by pipeting up and down. Please in thermocycler
+with the following conditions:</font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="281" cellpadding="3" cellspacing="0">
+	<col width="174"/>
+	<col width="93"/>
+	<tr valign="bottom">
+		<td width="174" height="14" bgcolor="#ffffff" style="background: #ffffff; border: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Thermocycler (lid at
+			105˚C)</b></font></p>
+		</td>
+		<td width="93" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Cycles</b></font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">95 °C for 3 mins</font></p>
+		</td>
+		<td width="93" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="right" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="174" height="15" valign="bottom" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">95 ˚C for 15s</font></p>
+		</td>
+		<td rowspan="3" width="93" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">14-20**</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="174" height="15" valign="bottom" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">56 ˚C for 15s</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="174" height="15" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">65 °C for 6 min*</font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">65˚C for 6 mins</font></p>
+		</td>
+		<td width="93" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="right" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="14" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Hold at 10˚C</font></p>
+		</td>
+		<td width="93" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font size="2" style="font-size: 10pt">*Adjust
+extension time accordingly for different lengths of amplicon </font>
+</p>
+<p style="margin-bottom: 0in"><font size="2" style="font-size: 10pt">
+</font><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font size="2" style="font-size: 10pt">**
+PCR cycles are dependent on the input DNA. For input &lt;5ng, use 20
+cycles.</font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><b>Step 3. SPRI Bead Clean-up</b></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Perform a SPRI clean-up with a SPRI
+bead ratio of <b>0.6x</b></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Allow beads to sit in RT for 30 mins
+prior. Ensure you have enough 80% ethanol.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">1. Add room temperature beads to rxn.
+Mix well by pipetting up and down 10 times.</p>
+<p style="margin-bottom: 0in">2. Incubate for 5 mins at room
+temperature.</p>
+<p style="margin-bottom: 0in">3. Place samples on a magnetic rack,
+and incubate for 5 mins on the rack.</p>
+<p style="margin-bottom: 0in">4. Remove supernatant and add 200uL of
+80% EtOH to samples while on the magnetic rack. 
+</p>
+<p style="margin-bottom: 0in">5. Incubate at room temperature for 30s
+and remove the supernatant.</p>
+<p style="margin-bottom: 0in">6. Repeat EtOH wash step for a total of
+2 times.</p>
+<p style="margin-bottom: 0in">7. Air dry the beads for up to 5 mins
+while on the magnetic rack.</p>
+<p style="margin-bottom: 0in">8. Remove tube from magnetic rack.
+Elute DNA from beads into 10 mM Tris-HCl pH 8.0 with 50</p>
+<p style="margin-bottom: 0in">mM NaCl.</p>
+<p style="margin-bottom: 0in">9. Pipette mix and incubate for 2 mins
+at room temperature off the magnetic rack.</p>
+<p style="margin-bottom: 0in">10. Place on a magnetic rack until the
+solution is clear, ~ 5 mins.</p>
+<p style="margin-bottom: 0in">11. Aspirate supernatant and transfer
+to a clean nuclease free PCR tube.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">**Checkpoint: Samples can be stored
+frozen at -20 °C and library prep resumed the next day.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Proceed to <a href="#mfnl2phpskj"><font color="#1155cc"><u>Quality
+Control (QC) and Pooling</u></font></a></p>
+<p style="margin-bottom: 0in"><a name="nm0oge2dvnkp"></a><br/>
+
+</p>
+<h1><a name="_dnidpqacsosz"></a>4b. ONT Library Preparation - RNA
+Libraries</h1>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">For RNA mNGS, we now (as of late 2025)
+recommend using the viral RNA portion of <a href="https://nanoporetech.com/document/rapid-sequencing-metagenomics-sqk-rpb114-24"><font color="#1155cc"><u>ONT’s
+rapid metagenomics sequencing protocol</u></font></a>. (Which is a
+modified version of the <a href="https://www.protocols.io/view/viral-metagenomics-using-smart-9n-amplification-an-j8nlke5wwl5r/v1"><font color="#1155cc"><u>SMART-9N
+protocol</u></font></a>.) This protocol requires additional reagents
+not supplied by the Rapid PCR Barcoding Kit. (<a href="#dg67bvylw9zl"><font color="#1155cc"><u>See
+Appendix</u></font></a> for reagent catalog numbers.) Key differences
+between this protocol and the original SMART-9N protocol are:</p>
+<ol>
+	<li><p style="margin-bottom: 0in">Higher concentrations of RLB-9N
+	and RLB-TSO (we have found this makes a significant improvement)</p></li>
+	<li><p style="margin-bottom: 0in">Choice of reverse transcriptase
+	(RT) enzyme: Maxima (H) Minus instead of SSIV (we have found that
+	this only has a marginal improvement, if at all, so you can use SSIV
+	if that’s more easily available)</p></li>
+</ol>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Some additional notes:</p>
+<ol>
+	<li><p style="margin-bottom: 0in">We have tried adding ERCC spike-in
+	controls to samples and found that transcript abundance after
+	sequencing correlates well with input. However, there isn’t a
+	straightforward way of doing this analysis since it is not included
+	in the CZ ID long-read pipeline.</p></li>
+	<li><p style="margin-bottom: 0in">We have also tried using
+	FastSelect for host depletion, but have not observed significant
+	improvement in results.</p></li>
+</ol>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="581" cellpadding="3" cellspacing="0">
+	<col width="174"/>
+	<col width="94"/>
+	<col width="94"/>
+	<col width="94"/>
+	<col width="93"/>
+	<tr>
+		<td colspan="5" width="573" height="20" valign="bottom" style="border-top: 1px solid #ffffff; border-bottom: 1px solid #000000; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<b>Step 1. Annealing</b></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td rowspan="3" width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Reagent</b></font></p>
+		</td>
+		<td rowspan="2" width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1 rxn</font></p>
+		</td>
+		<td rowspan="2" width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">0.5 rxn</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">X rxns</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #ffffff; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">X =</font></p>
+		</td>
+		<td width="93" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+		<td colspan="2" width="193" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">RNA sample</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">10</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">4.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">RLB RT primer mix (12 µM)</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">0.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">dNTP mix (10 mM)</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">0.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="14" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Total volume</b></font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>12</b></font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>5.5</b></font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Mix by gently pipetting up and down</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Thermocycler (heated lid set to 80˚C):</p>
+<p style="margin-bottom: 0in">·       5 min at 65°C</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Snap cool on ice block for 2 min</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="581" cellpadding="3" cellspacing="0">
+	<col width="174"/>
+	<col width="94"/>
+	<col width="94"/>
+	<col width="94"/>
+	<col width="93"/>
+	<tr>
+		<td colspan="5" width="573" height="20" valign="bottom" style="border-top: 1px solid #ffffff; border-bottom: 1px solid #000000; border-left: 1px solid #ffffff; border-right: 1px solid #ffffff; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<b>Step 2. Reverse Transcription</b></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td rowspan="3" width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Reagent</b></font></p>
+		</td>
+		<td rowspan="2" width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1 rxn</font></p>
+		</td>
+		<td rowspan="2" width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">0.5 rxn</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">X rxns</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #ffffff; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">X =</font></p>
+		</td>
+		<td width="93" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+		<td colspan="2" width="193" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Annealed RNA</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">12</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">6</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Maxima H(-) buffer (5X)</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">4</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">2</font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">RNase OUT</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">0.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Maxima H(-) enzyme</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">0.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">TSOmG (12 µM)</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">2</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="14" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Total volume</b></font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>20</b></font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>10</b></font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>20 each</b></font></p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Mix by gently pipetting up and down</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Incubate reaction mix as follows
+(heated lid set to 105˚C):</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">·       75 min at 42°C</p>
+<p style="margin-bottom: 0in">·       5 min at 80°C</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><b>Step 3. PCR Amplification</b></p>
+<table width="581" cellpadding="3" cellspacing="0">
+	<col width="174"/>
+	<col width="94"/>
+	<col width="94"/>
+	<col width="94"/>
+	<col width="93"/>
+	<tr valign="bottom">
+		<td rowspan="3" width="174" height="14" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Reagent</b></font></p>
+		</td>
+		<td rowspan="2" width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1 rxn</font></p>
+		</td>
+		<td rowspan="2" width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #ffffff; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">0.5 rxn</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">X rxns</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #ffffff; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">X =</font></p>
+		</td>
+		<td width="93" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+		<td width="94" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+		<td colspan="2" width="193" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>vol stock (µL)</b></font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Tagmented cDNA</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">5</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">2.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="18" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Nuclease-free water</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">11</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">5.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">RLB (01-24, at 1 µM)*</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">10</font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">5</font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Unique to each sample*</font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">LongAmp Taq 2x MM</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">25</font></p>
+		</td>
+		<td width="94" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">12.5</font></p>
+		</td>
+		<td colspan="2" width="193" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="14" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Total volume</b></font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>51</b></font></p>
+		</td>
+		<td width="94" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>25.5</b></font></p>
+		</td>
+		<td colspan="2" width="193" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font size="2" style="font-size: 10pt"><b>*RLB
+primer is at 1 µM in plate format; if shipped in tubes, it’s at 10
+µM stock concentration and needs to be diluted 1:10 using
+nuclease-free water</b></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Mix MM and final rxn. by pipetting up
+and down. Use the following program for PCR amplification (performed
+in post-PCR space.)</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="281" cellpadding="3" cellspacing="0">
+	<col width="174"/>
+	<col width="93"/>
+	<tr valign="bottom">
+		<td width="174" height="14" bgcolor="#ffffff" style="background: #ffffff; border: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Thermocycler (lid at
+			105˚C)</b></font></p>
+		</td>
+		<td width="93" style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Cycles</b></font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">95 °C for 45s</font></p>
+		</td>
+		<td width="93" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">95 ˚C for 15s</font></p>
+		</td>
+		<td rowspan="3" width="93" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">30</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="174" height="15" valign="bottom" style="border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">56 ˚C for 15s</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="174" height="15" valign="bottom" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">65 °C for 6 min</font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="15" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">65˚C for 6 mins</font></p>
+		</td>
+		<td width="93" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="174" height="14" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Hold at 4˚C</font></p>
+		</td>
+		<td width="93" style="background: transparent; border-top: 1px solid #cccccc; border-bottom: 1px solid #000000; border-left: 1px solid #cccccc; border-right: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><b>Step 4. Exonuclease Treatment</b></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Add 1 µL of Thermolabile Exonuclease I
+per reaction and incubate as follows (heated lid at 105˚C):</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">·       10 min at 37°C</p>
+<p style="margin-bottom: 0in">·       1 min at 80°C</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><b>Step 5. SPRI Bead Clean-up</b></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Perform a SPRI clean-up with a SPRI
+bead ratio of <b>0.6x</b></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Allow beads to sit in RT for 30 mins
+prior. Ensure you have enough 80% ethanol.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">1. Add room temperature beads to rxn.
+Mix well by pipetting up and down 10 times.</p>
+<p style="margin-bottom: 0in">2. Incubate for 5 mins at room
+temperature.</p>
+<p style="margin-bottom: 0in">3. Place samples on a magnetic rack,
+and incubate for 5 mins on the rack.</p>
+<p style="margin-bottom: 0in">4. Remove supernatant and add 200uL of
+80% EtOH to samples while on the magnetic rack. 
+</p>
+<p style="margin-bottom: 0in">5. Incubate at room temperature for 30s
+and remove the supernatant.</p>
+<p style="margin-bottom: 0in">6. Repeat EtOH wash step for a total of
+2 times.</p>
+<p style="margin-bottom: 0in">7. Air dry the beads for up to 5 mins
+while on the magnetic rack.</p>
+<p style="margin-bottom: 0in">8. Remove tube from magnetic rack.
+Elute DNA from beads into 10 mM Tris-HCl pH 8.0 with 50</p>
+<p style="margin-bottom: 0in">mM NaCl.</p>
+<p style="margin-bottom: 0in">9. Pipette mix and incubate for 2 mins
+at room temperature off the magnetic rack.</p>
+<p style="margin-bottom: 0in">10. Place on a magnetic rack until the
+solution is clear, ~ 5 mins.</p>
+<p style="margin-bottom: 0in">11. Aspirate supernatant and transfer
+to a clean nuclease free PCR tube.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">**Checkpoint: Samples can be stored
+frozen at -20 °C and library prep resumed the next day.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Proceed to <a href="#mfnl2phpskj"><font color="#1155cc"><u>Quality
+Control (QC) and Pooling</u></font></a></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><a name="mfnl2phpskj"></a><br/>
+
+</p>
+<h1><a name="_6fqqiulp2kdr"></a>5. Quality Control (QC) and Pooling</h1>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">For QC, determine the quality of the
+finished libraries, pool libraries and quantify the final pooled
+libraries</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><b>Workflow: </b>High sensitivity DNA
+Qubit, Tapestation/Bioanalyzer/Qiaxcel</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><b>Protocol: </b>
+</p>
+<p style="margin-bottom: 0in">See the manufacturer’s protocol for
+using a capillary electrophoresis quantification system:
+<a href="https://www.agilent.com/cs/library/usermanuals/public/ScreenTape_HSD5000_QG.pdf"><font color="#1155cc"><u>Tapestation</u></font></a>/<a href="https://www.agilent.com/cs/library/usermanuals/public/High%20Sensitivity_DNA_KG.pdf"><font color="#1155cc"><u>Bioanalyzer</u></font></a>/<a href="https://www.agilent.com/cs/library/usermanuals/public/quick-guide-dnf-474-hs-ngs-fragment-kit-96-capillary-M5312-92474.pdf"><font color="#1155cc"><u>Fragment
+Analyzer</u></font></a>/<a href="https://www.qiagen.com/us/resources/download.aspx?id=da6aa695-c90a-438d-b061-27810ad158bb&amp;lang=en"><font color="#1155cc"><u>Qiaxcel</u></font></a>.
+If a capillary electrophoresis system is unavailable, see Appendix B
+for a Diagnostic PCR alternative. 
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<ol>
+	<li><p style="margin-bottom: 0in">Perform a qubit HS DNA
+	quantification using 1uL of each sample library. 
+	</p>
+	<ol type="a">
+		<li><p style="margin-bottom: 0in">Water controls should have
+		substantially less or unquantifiable concentrations than the rest
+		of the samples. 
+		</p></li>
+	</ol>
+</ol>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<ol start="2">
+	<li><p style="margin-bottom: 0in">Assess the sample library sizes by
+	tapestation/bioanalyzer/etc. (this can be done on the final pool
+	rather than each sample individually after you feel confident that
+	you can make consistently sized libraries)</p></li>
+</ol>
+<p align="center" style="margin-left: 0.5in; margin-bottom: 0in"><img src="Biohub%20Protocols_%20Nanopore%20mNGS_html_117404f2.png" name="image1.png" align="bottom" width="351" height="261" border="0"/>
+</p>
+<ol start="3">
+	<li><p style="margin-bottom: 0in">Pool all barcoded libraries in the
+	desired ratios to a total of <b>100-200 fmols* in 11 µL of
+	nuclease-free water</b>. Concentration of each sample can be
+	calculated from the Tapestation instrument using the region molarity
+	value, or converting the concentration from DNA Qubit (ng/µL) to
+	fmoles/µL based on the mean library size.</p></li>
+</ol>
+<p style="margin-left: 0.5in; margin-bottom: 0in">*<i>ONT’s
+protocol suggests 50-100 fmol, but we have found that loading a
+higher concentration works better, especially for RNA mNGS.</i></p>
+<p align="center" style="margin-left: 0.5in; margin-bottom: 0in"><img src="Biohub%20Protocols_%20Nanopore%20mNGS_html_fe63fe5d.png" name="image2.png" align="bottom" width="373" height="207" border="0"/>
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">**Checkpoint: Samples can be stored
+frozen at -20 °C and library prep resumed the next day.</p>
+<p style="margin-bottom: 0in"><a name="m6qnfjmyk5vc"></a><br/>
+
+</p>
+<h1><a name="_vnt77rj90dx"></a>6. Adapter Ligation</h1>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">This step needs to be performed
+<b>immediately prior to loading</b>. (Fine to have it sit on ice for
+~30 min to an hour)</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">In a fresh 1.5 ml Eppendorf DNA LoBind
+tube, mix 3.5 µL Adapter Buffer (ADB) with 1.5 µL Rapid Adapter
+(RA) for a total of 5 µL of diluted Rapid Adapter.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Add 1 µL diluted adapter to the
+barcoded DNA, mix gently by pipetting up and down, incubate for 5 min
+at room temperature.</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">The prepared library is ready to be
+loaded into the MinION flow cell. Store the library on ice until
+ready to load. 
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<h1><a name="_4o853esnth7z"></a><a name="im4q85oy4ilj"></a>7. Priming
+and loading the MinION flow cell</h1>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p align="justify" style="line-height: 115%; margin-bottom: 0in; page-break-after: avoid">
+<a href="https://nanoporetech.com/document/rapid-sequencing-dna-v14-pcr-barcoding-sqk-rpb114-24#priming-and-loading-the-spoton-flow-cell"><font color="#1155cc"><u>Follow
+this protocol from ONT</u></font></a> for priming and loading the
+flow cell</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><a name="2jfvvu8xpni9"></a><br/>
+
+</p>
+<h1><a name="_ovnxjmvcy2yt"></a>8. Concatenating FASTQ files</h1>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in">Oxford Nanopore sequencing generates
+output files in time-based batches. By default, MinKNOW typically
+writes output approximately every hour during an active sequencing
+run. As a result, each barcode/sample may be associated with multiple
+FASTQ files. (For example, a 6-hour run may generate ~6 FASTQ files
+per barcode.) Before downstream analysis (including upload to CZ ID),
+all FASTQ files corresponding to the same barcode/sample must be
+concatenated into a single FASTQ file per sample.</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in"><a name="ptp9j8r3adkd"></a>
+Concatenation can be done using standard command-line tools (e.g.,
+cat on Mac/Linux). You can learn more by following CZ ID’s guide on
+<a href="https://chanzuckerberg.zendesk.com/hc/en-us/articles/360051806072-Concatenate-Sequence-Files"><font color="#1155cc"><u>how
+to concatenate sequence files</u></font></a>.</p>
+<h1 style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 100%"><a name="_bo5shlglh5a"></a>
+9. Barcode Bleeding and Mid-Read Trimming</h1>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+Barcode bleeding can occur when samples are pooled, library fragment
+sizes are short, and a target is present at very high abundance in
+one sample. Under these conditions, low-level misassignment of reads
+between barcodes may occur. This is particularly noticeable in low
+biomass samples or negative controls. Although typically low
+frequency, barcode bleeding can introduce background signals and
+complicate interpretation.</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+To mitigate this issue, reads containing barcode or adapter sequences
+in the middle of the read can be removed prior to downstream
+analysis. A web-based tool to perform mid-read barcode trimming is
+available <a href="https://github.com/gowtham-thakku/barcode-trimmer"><font color="#1155cc"><u>here</u></font></a>.</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in"><a name="hwnynbtotxg0"></a>
+This application runs directly in a web browser without requiring
+installation. For larger files (&gt;250 MB), running the tool locally
+is recommended for improved performance. The tool removes reads
+containing internal barcode or adapter sequences, and the cleaned
+FASTQ file can then be used for downstream analysis and CZ ID upload.</p>
+<h1 style="margin-top: 0.17in; margin-bottom: 0.17in; line-height: 100%"><a name="_26kqm4eyfik5"></a>
+10. Visualization of CZ ID Data</h1>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+At this time, the CZ ID ONT pipeline does not include a built-in
+heatmap visualization. To generate heatmaps from CZ ID ONT results,
+use the <a href="https://github.com/gowtham-thakku/ont-heatmap"><font color="#1155cc"><u>ONT
+Heatmap Generator</u></font></a>. This web-based application runs
+directly in a browser and does not require installation. It allows
+users to generate heatmaps from CZ ID outputs (sample taxon reports)
+and is designed specifically for ONT long-read metagenomic data. The
+tool enables visualization of relative abundance of taxa across
+samples, much like the Illumina heatmap functionality on CZ ID.</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+<br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+<br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+<br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+<br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+<br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+<br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+<br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+<br/>
+<br/>
+
+</p>
+<h1><a name="_r191yu41qlzt"></a>Appendix</h1>
+<p style="margin-bottom: 0in"><a name="dg67bvylw9zl"></a><br/>
+
+</p>
+<h1><a name="_iim2vqjrgc4z"></a>Appendix A: Catalog links and numbers</h1>
+<p style="margin-bottom: 0in"><a href="https://docs.google.com/spreadsheets/d/1LbtShn4FByDF43b8CMsB6Lgr6rcz26FAkKd8BcRVxzw"><font color="#1155cc"><u>See
+linked Google Sheet for catalog numbers and notes</u></font></a></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><a name="divtvn9qvffe"></a><br/>
+
+</p>
+<h1 style="page-break-before: always"><a name="_lpk4uee9c641"></a>Appendix
+B: Diagnostic PCR</h1>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<ol>
+	<li><p style="margin-bottom: 0in"><font color="#1d1c1d"><font size="3" style="font-size: 11pt">If
+	you are unable to use a high sensitivity capillary electrophoresis
+	system, you can perform a diagnostic PCR instead as a proxy for the
+	overall library size. Do note that this method tends to slightly
+	overestimate the size of the library.</font></font></p></li>
+</ol>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<ol start="2">
+	<li><p style="margin-bottom: 0in"><font color="#1d1c1d"><font size="3" style="font-size: 11pt">Take
+	1 uL of the individual libraries or final pool and perform a
+	standard PCR reaction for 20 cycles using </font></font><font color="#1d1c1d"><font size="3" style="font-size: 11pt"><u><b>one</b></u></font></font><font color="#1d1c1d"><font size="3" style="font-size: 11pt">
+	of the following primers:</font></font></p></li>
+</ol>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<ul>
+	<li><p style="margin-bottom: 0in"><font size="3" style="font-size: 11pt">Barcoding
+	PCR primer (RLB-01 to RLB-24): </font>
+	</p></li>
+</ul>
+<p style="margin-left: 1in; line-height: 100%; orphans: 0; margin-bottom: 0.17in; widows: 0">
+<font size="3" style="font-size: 11pt">5' - ATCGCCTACCGTGAC - barcode
+- CGTTTTTCGTGCGCCGCTTC - 3'</font></p>
+<p style="line-height: 100%; orphans: 0; margin-bottom: 0.17in; widows: 0">
+<font size="3" style="font-size: 11pt">							</font><font size="3" style="font-size: 11pt"><b>OR</b></font></p>
+<ul>
+	<li><p style="line-height: 100%; orphans: 0; margin-bottom: 0.17in; widows: 0">
+	<font size="3" style="font-size: 11pt">End adapter portion of
+	barcoding PCR primer:</font></p></li>
+</ul>
+<p style="margin-left: 1in; line-height: 100%; orphans: 0; margin-bottom: 0.17in; widows: 0">
+<font size="3" style="font-size: 11pt">5' - ATCGCCTACCGTGAC - 3'</font></p>
+<p style="line-height: 100%; margin-left: 3in; orphans: 0; margin-bottom: 0.17in; widows: 0; text-indent: 0.5in">
+<font size="3" style="font-size: 11pt"><b>OR</b></font></p>
+<ul>
+	<li><p style="line-height: 100%; orphans: 0; margin-bottom: 0.17in; widows: 0">
+	<font size="3" style="font-size: 11pt">Front adapter portion of
+	barcoding PCR primer (RLB-PCR from </font><a href="https://www.protocols.io/view/viral-metagenomics-using-smart-9n-amplification-an-j8nlke5wwl5r/v1/materials"><font color="#1155cc"><font size="3" style="font-size: 11pt"><u>SMART-9N
+	publication</u></font></font></a><font size="3" style="font-size: 11pt">):
+	</font>
+	</p></li>
+</ul>
+<p style="margin-left: 1in; line-height: 100%; orphans: 0; margin-bottom: 0.17in; widows: 0">
+<font size="3" style="font-size: 11pt">5’ - TTTTTCGTGCGCCGCTTCA -
+3’</font></p>
+<ol start="3">
+	<li><p style="margin-bottom: 0in"><font size="3" style="font-size: 11pt">For
+	each sample or pool, setup the amplification reaction as follows:</font></p></li>
+</ol>
+<p align="center" style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+<table dir="ltr" align="left" width="343" hspace="12" vspace="12" cellpadding="11" cellspacing="0">
+	<col width="212"/>
+	<col width="85"/>
+	<thead>
+		<tr valign="top">
+			<td width="212" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				<b>Component</b></p>
+			</td>
+			<td width="85" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				<b>Volume (µL)</b></p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="212" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				LongAmp Master Mix (2x)</p>
+			</td>
+			<td width="85" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				25</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="212" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				Nuclease-free Water</p>
+			</td>
+			<td width="85" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				23.5</p>
+			</td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr valign="top">
+			<td width="212" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				Primer (10µM)</p>
+			</td>
+			<td width="85" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				0.5</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="212" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				DNA Template</p>
+			</td>
+			<td width="85" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				1</p>
+			</td>
+		</tr>
+		<tr valign="top">
+			<td width="212" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				Total Volume</p>
+			</td>
+			<td width="85" style="border: 1px solid #000000; padding: 0in 0.11in"><p>
+				50</p>
+			</td>
+		</tr>
+	</tbody>
+</table><br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.17in; margin-bottom: 0.17in">
+<br/>
+<br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<ol start="4">
+	<li><p style="margin-bottom: 0in">Use the following cycling
+	conditions:</p></li>
+</ol>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><table dir="ltr" align="left" width="321" hspace="12" vspace="12" cellpadding="3" cellspacing="0">
+	<col width="214"/>
+	<col width="93"/>
+	<tr valign="bottom">
+		<td width="214" height="14" bgcolor="#ffffff" style="background: #ffffff; border: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Thermocycler (lid at
+			105˚C)</b></font></p>
+		</td>
+		<td width="93" style="border: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><b>Cycles</b></font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="214" height="15" style="border: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">95 °C for 45s</font></p>
+		</td>
+		<td width="93" style="border: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="214" height="15" style="border: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">95 ˚C for 15s</font></p>
+		</td>
+		<td rowspan="3" width="93" style="border: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">20</font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="214" height="15" valign="bottom" style="border: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt"><span style="background: #f4cccc">X
+			˚C for 15s*</span></font></p>
+		</td>
+	</tr>
+	<tr>
+		<td width="214" height="15" valign="bottom" style="border: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">65 °C for 5 min</font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="214" height="15" style="border: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">65˚C for 10 mins</font></p>
+		</td>
+		<td width="93" style="border: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">1</font></p>
+		</td>
+	</tr>
+	<tr valign="bottom">
+		<td width="214" height="14" style="border: 1px solid #000000; padding: 0.03in"><p style="orphans: 0; widows: 0">
+			<font size="2" style="font-size: 10pt">Hold at 10˚C</font></p>
+		</td>
+		<td width="93" style="border: 1px solid #000000; padding: 0.03in"><p align="center" style="orphans: 0; widows: 0">
+			<font face="Arial Unicode MS, serif"><font size="2" style="font-size: 10pt">∞</font></font></p>
+		</td>
+	</tr>
+</table><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-left: 1in; margin-bottom: 0in"><span style="background: #f4cccc">*X
+depends on which primer is being used</span></p>
+<p style="margin-left: 1in; margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-left: 1in; margin-bottom: 0in">X = 59˚C if using
+<font size="3" style="font-size: 11pt">Barcoding PCR primer (RLB-01
+to RLB-24)</font></p>
+<p style="margin-left: 1in; margin-bottom: 0in"> 
+</p>
+<p style="margin-left: 1in; margin-bottom: 0in">X = 53˚C if using
+<font size="3" style="font-size: 11pt">End adapter portion of
+barcoding PCR primer</font></p>
+<p style="margin-left: 1in; margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-left: 1in; margin-bottom: 0in"><font size="3" style="font-size: 11pt">X
+= 56˚C if using Front adapter portion of barcoding PCR primer</font></p>
+<p style="margin-left: 1in; margin-bottom: 0in"><br/>
+
+</p>
+<ol start="5">
+	<li><p style="margin-bottom: 0in"><font size="3" style="font-size: 11pt">Run
+	PCR amplified product on a 1% gel with a 1kb ladder control to
+	visualize. The volumes used will depend on the gel electrophoresis
+	system being used.</font></p></li>
+</ol>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><a name="t5a7g2ot5h2j"></a><br/>
+
+</p>
+<p style="margin-bottom: 0in"><font size="4" style="font-size: 14pt"><b>Appendix
+C: Additional Resources</b></font></p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.04in; margin-bottom: 0.04in">
+<font color="#1d1c1d"><font size="3" style="font-size: 11pt"><b>CZ ID
+help center</b></font></font></p>
+<p style="line-height: 100%; margin-top: 0.04in; margin-bottom: 0.04in">
+<a href="https://help.czid.org/"><font color="#1264a3"><font size="3" style="font-size: 11pt"><i>https://help.czid.org</i></font></font></a></p>
+<ul>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-top: 0.07in; margin-bottom: 0in">
+	<a href="https://chanzuckerberg.zendesk.com/hc/en-us/articles/13830756964372-Upload-Nanopore-Data"><font color="#1264a3"><font size="3" style="font-size: 11pt">Upload
+	ONT data</font></font></a></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0in">
+	<a href="https://chanzuckerberg.zendesk.com/hc/en-us/articles/360051806072-Concatenate-Sequence-Files"><font color="#1264a3"><font size="3" style="font-size: 11pt">Concatenate
+	files</font></font></a></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0in">
+	<a href="https://chanzuckerberg.zendesk.com/hc/en-us/articles/13832912199188-Analyze-Nanopore-Data"><font color="#1264a3"><font size="3" style="font-size: 11pt">Analyze
+	Nanopore Data</font></font></a></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0.07in">
+	<a href="https://chanzuckerberg.zendesk.com/hc/en-us/articles/14204462135060-Edit-Metadata"><font color="#1264a3"><font size="3" style="font-size: 11pt">Edit
+	Metadata</font></font></a></p></li>
+</ul>
+<p style="line-height: 100%; margin-left: 0.5in; margin-top: 0.07in; margin-bottom: 0.07in; border: none; padding: 0in">
+<br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.04in; margin-bottom: 0.04in">
+<font color="#1d1c1d"><font size="3" style="font-size: 11pt"><b>ONT
+resources</b></font></font></p>
+<ul>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-top: 0.07in; margin-bottom: 0in">
+	<font color="#1d1c1d"><font size="3" style="font-size: 11pt">ONT
+	chemistry overview:<a href="https://nanoporetech.com/document/chemistry-technical-document">
+	</a></font></font><a href="https://nanoporetech.com/document/chemistry-technical-document"><font color="#1264a3"><font size="3" style="font-size: 11pt">Chemistry
+	Technical Document | Oxford Nanopore Technologies</font></font></a></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0in">
+	<font color="#1d1c1d"><font size="3" style="font-size: 11pt">MinKNOW
+	intro and overview:<a href="https://nanoporetech.com/document/minknow-tech-doc">
+	</a></font></font><a href="https://nanoporetech.com/document/minknow-tech-doc"><font color="#1264a3"><font size="3" style="font-size: 11pt">MinKNOW
+	Technical Document | Oxford Nanopore Technologies</font></font></a></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0in">
+	<font color="#1d1c1d"><font size="3" style="font-size: 11pt">MinKNOW
+	quick guide:<a href="https://nanoporetech.com/document/experiment-companion-minknow">
+	</a></font></font><a href="https://nanoporetech.com/document/experiment-companion-minknow"><font color="#1264a3"><font size="3" style="font-size: 11pt">MinKNOW
+	| Oxford Nanopore Technologies</font></font></a></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0in">
+	<font color="#1d1c1d"><font size="3" style="font-size: 11pt">Basecalling
+	and data analysis:<a href="https://nanoporetech.com/document/data-analysis">
+	</a></font></font><a href="https://nanoporetech.com/document/data-analysis"><font color="#1264a3"><font size="3" style="font-size: 11pt">Data
+	analysis | Oxford Nanopore Technologies</font></font></a></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0in">
+	<font color="#1d1c1d"><font size="3" style="font-size: 11pt">Barcode
+	+ adapter sequences:<a href="https://nanoporetech.com/document/chemistry-technical-document#barcode-sequences=">
+	</a></font></font><a href="https://nanoporetech.com/document/chemistry-technical-document#barcode-sequences="><font color="#1264a3"><font size="3" style="font-size: 11pt">Chemistry
+	Technical Document | Oxford Nanopore Technologies</font></font></a><font color="#1d1c1d"><font size="3" style="font-size: 11pt">
+	(search “RLB” to quickly find the right section)</font></font></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0in">
+	<font color="#1d1c1d"><font size="3" style="font-size: 11pt">R10
+	flow cell loading:<a href="https://nanoporetech.com/document/rapid-sequencing-dna-v14-pcr-barcoding-sqk-rpb114-24#priming-and-loading-the-spoton-flow-cell=">
+	</a></font></font><a href="https://nanoporetech.com/document/rapid-sequencing-dna-v14-pcr-barcoding-sqk-rpb114-24#priming-and-loading-the-spoton-flow-cell="><font color="#1264a3"><font size="3" style="font-size: 11pt">Rapid
+	sequencing DNA - PCR Barcoding Kit 24 V14 (SQK-RPB114.24)
+	(RPB_9191_v114_revD_16Oct2024) | Oxford Nanopore Technologies</font></font></a></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0in">
+	<font color="#1d1c1d"><font size="3" style="font-size: 11pt">Post-run
+	flow cell wash:<a href="https://nanoporetech.com/document/flow-cell-wash-kit-exp-wsh004">
+	</a></font></font><a href="https://nanoporetech.com/document/flow-cell-wash-kit-exp-wsh004"><font color="#1264a3"><font size="3" style="font-size: 11pt">Flow
+	Cell Wash Kit (EXP-WSH004 or EXP-WSH004-XL)
+	(WFC_9120_v1_revQ_08Dec2020) | Oxford Nanopore Technologies</font></font></a></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0in">
+	<font color="#1d1c1d"><font size="3" style="font-size: 11pt">Mk1b
+	computer requirements:<a href="https://nanoporetech.com/document/requirements/minion-it-reqs">
+	</a></font></font><a href="https://nanoporetech.com/document/requirements/minion-it-reqs"><font color="#1264a3"><font size="3" style="font-size: 11pt">MinION
+	Mk1B IT requirements | Oxford Nanopore Technologies</font></font></a></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0.07in">
+	<font color="#1d1c1d"><font size="3" style="font-size: 11pt"><b>Rapid
+	metagenomic sequencing for surveillance of bacterial, fungal and
+	viral pathogens using SQK-RPB114.24:<a href="https://nanoporetech.com/document/rapid-sequencing-metagenomics-sqk-rpb114-24">
+	</a></b></font></font><a href="https://nanoporetech.com/document/rapid-sequencing-metagenomics-sqk-rpb114-24"><font color="#1264a3"><font size="3" style="font-size: 11pt"><u><b>Rapid
+	metagenomic sequencing for surveillance of bacterial, fungal and
+	viral pathogens using SQK-RPB114.24</b></u></font></font></a></p></li>
+</ul>
+<p style="line-height: 100%; margin-top: 0.04in; margin-bottom: 0.04in">
+<br/>
+<br/>
+
+</p>
+<p style="line-height: 100%; margin-top: 0.04in; margin-bottom: 0.04in">
+<font color="#1d1c1d"><font size="3" style="font-size: 11pt"><b>Papers</b></font></font></p>
+<ul>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-top: 0.07in; margin-bottom: 0in">
+	<font color="#1d1c1d"><font size="3" style="font-size: 11pt">Gauthier,
+	et al. JID 2024:<a href="https://watermark.silverchair.com/jiae226.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAA2kwggNlBgkqhkiG9w0BBwagggNWMIIDUgIBADCCA0sGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMFgWk4nSr0jHUs3uoAgEQgIIDHLPuQlZKjfjGjWUaOLPZE63oY7xvDI1cY78GoK88kWgUPTyM9Z8UGmqf6wUFdXUGMtlYt4dOhQMAvPQcakGARRrhWqqdN9EZGwu5Cwhg39I7VAlLPm4elVCpP-Ky5yIQQKz7x98NxFGt23dukMbplOJytrutsieMIRdKSM7ruJuh6kp9E_nOVL7P0ESG7Z2H_Y2RAjvCTZIhoY7STizZaGBqQlDeTWPGS6ChSViN-59NXG-QkTfVxnSiggATdh-7tp2lFVby6trC0rJ7ZrGYi0yzrgIH6qksySue23ESQpjW6UZg1QxXdDkwWrcLdyMmrPZXYbmAQNrHbobnxtwbImVN9wkkTD6j5E7Ge-Ww8Y3fBGHqECboFXh9MYL4R56b7dhWkK3fy0VePjOVME0IlDWtptv9p-rpayScU2WZ6797F-avC0T5TAU8JW-g7uJc71431bA3CE_Yl0nwLvtt4iYUyjBZ5QE4mG84V7wXxB4qWHn0_dgxZoYoRC50w9VgEq_fWQwEy_79pss--b-_Rp7IDMosRzII1Bhka1Zrn2sDiU5CD6r0Ui66uXiqmtnMGzStKb5YtbIP-b8FC9bi8wQ31X0iMB_0manxl2_g_9P2Gafbv4yhM49WGdqd1CK63dS3XfaEzWdxbZFXYCcl4zXFNyXHtFno5x8unSJckvJFNfg4-r2jyIeNXAS8ni1AxqGGmSuJ-k822jJbTlKSaaK5dFlBx-fsqaxCHqey4u7P8q2bw9krtB5JZ_zr6Smb_RprEtZ1zoBB4gxqRXtzlOnWYImp3AgVg0GZob1iUoumTDAkGlzRZA1OUecd27NUpxSFBoxUFKKLmQsL9msPBP9h3dpvYCxnFOLFzTrxv_NXGOkx1IjIWXSBxTzbSSOKLYVf4R2buRgod1_OvE552d3aj0nvhcrvM13gDcdxFSaMtvF8GNOdDHKsVFWfHfTnsNIMq-wxRDUd69wOhC5ku1-8GMusw1UmXXhMNOi5EUDDsx5xBTpjBxeje_0ThFXeeRe01quJbCwI6MllEiIeTjRuIQweFPAzPWuwRDk">
+	</a></font></font><a href="https://watermark.silverchair.com/jiae226.pdf?token=AQECAHi208BE49Ooan9kkhW_Ercy7Dm3ZL_9Cf3qfKAc485ysgAAA2kwggNlBgkqhkiG9w0BBwagggNWMIIDUgIBADCCA0sGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMFgWk4nSr0jHUs3uoAgEQgIIDHLPuQlZKjfjGjWUaOLPZE63oY7xvDI1cY78GoK88kWgUPTyM9Z8UGmqf6wUFdXUGMtlYt4dOhQMAvPQcakGARRrhWqqdN9EZGwu5Cwhg39I7VAlLPm4elVCpP-Ky5yIQQKz7x98NxFGt23dukMbplOJytrutsieMIRdKSM7ruJuh6kp9E_nOVL7P0ESG7Z2H_Y2RAjvCTZIhoY7STizZaGBqQlDeTWPGS6ChSViN-59NXG-QkTfVxnSiggATdh-7tp2lFVby6trC0rJ7ZrGYi0yzrgIH6qksySue23ESQpjW6UZg1QxXdDkwWrcLdyMmrPZXYbmAQNrHbobnxtwbImVN9wkkTD6j5E7Ge-Ww8Y3fBGHqECboFXh9MYL4R56b7dhWkK3fy0VePjOVME0IlDWtptv9p-rpayScU2WZ6797F-avC0T5TAU8JW-g7uJc71431bA3CE_Yl0nwLvtt4iYUyjBZ5QE4mG84V7wXxB4qWHn0_dgxZoYoRC50w9VgEq_fWQwEy_79pss--b-_Rp7IDMosRzII1Bhka1Zrn2sDiU5CD6r0Ui66uXiqmtnMGzStKb5YtbIP-b8FC9bi8wQ31X0iMB_0manxl2_g_9P2Gafbv4yhM49WGdqd1CK63dS3XfaEzWdxbZFXYCcl4zXFNyXHtFno5x8unSJckvJFNfg4-r2jyIeNXAS8ni1AxqGGmSuJ-k822jJbTlKSaaK5dFlBx-fsqaxCHqey4u7P8q2bw9krtB5JZ_zr6Smb_RprEtZ1zoBB4gxqRXtzlOnWYImp3AgVg0GZob1iUoumTDAkGlzRZA1OUecd27NUpxSFBoxUFKKLmQsL9msPBP9h3dpvYCxnFOLFzTrxv_NXGOkx1IjIWXSBxTzbSSOKLYVf4R2buRgod1_OvE552d3aj0nvhcrvM13gDcdxFSaMtvF8GNOdDHKsVFWfHfTnsNIMq-wxRDUd69wOhC5ku1-8GMusw1UmXXhMNOi5EUDDsx5xBTpjBxeje_0ThFXeeRe01quJbCwI6MllEiIeTjRuIQweFPAzPWuwRDk"><font color="#1264a3"><font size="3" style="font-size: 11pt">Validation
+	of an Automated, End-to-End Metagenomic Sequencing Assay for
+	Agnostic Detection of Respiratory Viruses</font></font></a></p></li>
+	<li><p style="line-height: 100%; border: none; padding: 0in; margin-bottom: 0.07in">
+	<font color="#1d1c1d"><font size="3" style="font-size: 11pt">Simmonds,
+	et al. BioRxiv 2024:<a href="https://www.biorxiv.org/content/10.1101/2024.02.29.579666v1">
+	</a></font></font><a href="https://www.biorxiv.org/content/10.1101/2024.02.29.579666v1"><font color="#1264a3"><font size="3" style="font-size: 11pt">CZ
+	ID: a cloud-based, no-code platform enabling advanced long read
+	metagenomic analysis</font></font></a></p></li>
+</ul>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><a name="8v5yso80xy8c"></a><br/>
+
+</p>
+<h1><a name="_pfijitfplzmc"></a><b>Appendix </b>D: Document revision
+history</h1>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<table width="624" cellpadding="7" cellspacing="0">
+	<col width="163"/>
+	<col width="102"/>
+	<col width="315"/>
+	<tr valign="top">
+		<td width="163" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			<b>Workflow</b></p>
+		</td>
+		<td width="102" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			<b>Date</b></p>
+		</td>
+		<td width="315" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			<b>Description of Change</b></p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="163" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p>
+			Diagnostic PCR</p>
+		</td>
+		<td width="102" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			1/16/2025</p>
+		</td>
+		<td width="315" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			Added in protocol</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="163" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			Diagnostic PCR</p>
+		</td>
+		<td width="102" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			6/16/2025</p>
+		</td>
+		<td width="315" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p>
+			Added detail for gel visualization step</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="163" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			Updated RNA mNGS protocol 
+			</p>
+		</td>
+		<td width="102" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			1/8/2026</p>
+		</td>
+		<td width="315" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p>
+			Updated to follow ONT’s version of SMART-9N 
+			</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="163" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p>
+			Appendix</p>
+		</td>
+		<td width="102" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			3/2/2026</p>
+		</td>
+		<td width="315" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			Additional resources</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="163" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p>
+			mNGS workflow</p>
+		</td>
+		<td width="102" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			3/2/2026</p>
+		</td>
+		<td width="315" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			Addition of steps after sequencing: concatenation of FASTQs,
+			mid-read filtering, ONT heatmap generation</p>
+		</td>
+	</tr>
+	<tr valign="top">
+		<td width="163" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p>
+			<br/>
+
+			</p>
+		</td>
+		<td width="102" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+		<td width="315" style="background: transparent; border: 1.00pt solid #000000; padding: 0.07in"><p style="orphans: 0; widows: 0">
+			<br/>
+
+			</p>
+		</td>
+	</tr>
+</table>
+<p style="margin-bottom: 0in"><br/>
+
+</p>
+<div title="footer"><p align="center" style="margin-top: 0.46in; margin-bottom: 0in">
+	For research use only. Not for use in clinical diagnostics.</p>
+</div>
+</body>
+</html>
