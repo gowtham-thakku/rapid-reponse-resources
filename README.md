@@ -8,17 +8,45 @@ Resources for metagenomics sequencing: training slide decks, lab worksheets, and
 <th width="50%">Nanopore (ONT)</th>
 </tr>
 
+<tr>
+<td>
+
+**Start here:** [Biohub Rapid Response mNGS Protocols](https://gowtham-thakku.github.io/rapid-reponse-resources/protocols/rapid-response-mngs-protocols/index.html)
+
+</td>
+<td>
+
+**Start here:** [Biohub Protocols — Nanopore mNGS](https://gowtham-thakku.github.io/rapid-reponse-resources/protocols/biohub-protocols-nanopore-mngs/index.html)
+
+</td>
+</tr>
+
 <tr><td colspan="2">
 
-**Start here:** [Biohub Rapid Response mNGS Protocols](https://gowtham-thakku.github.io/rapid-reponse-resources/protocols/rapid-response-mngs-protocols/index.html) — the central protocol document covering the full workflow from sample collection through library prep and sequencing.
+**1. Introduction to mNGS and Lab:** [slide deck](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/intro-to-mngs-and-lab/index.html)
 
 </td></tr>
 
 <tr><td colspan="2">
 
-**CZ ID pipeline & platform overview:** [DL2 — Intro to CZ ID](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/dl2-intro-to-czid/index.html)
+**2. mNGS Study Design and Sample Preparation:** [slide deck](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/mngs-study-design-and-sample-prep/index.html)
 
 </td></tr>
+
+<tr>
+<td>
+
+**3. Sequencing and Data Analysis Intro**
+- [mNGS Illumina Sequencing and Data Analysis Intro](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/illumina-sequencing-and-data-analysis-intro/index.html)
+
+</td>
+<td>
+
+**3. Sequencing and Data Analysis Intro**
+- [Intro to Nanopore Sequencing](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/intro-to-nanopore-sequencing/index.html)
+
+</td>
+</tr>
 
 <tr>
 <td>
@@ -49,6 +77,12 @@ _Nothing hosted yet._
 
 </td>
 </tr>
+
+<tr><td colspan="2">
+
+**CZ ID Pipeline & Platform Overview:** [DL2 — Intro to CZ ID](https://gowtham-thakku.github.io/rapid-reponse-resources/slides/dl2-intro-to-czid/index.html)
+
+</td></tr>
 
 </table>
 
