@@ -1,0 +1,26 @@
+{
+  "entries": [
+    {
+      "source": "resources/protocols/Biohub Rapid Response mNGS Protocols Shared.docx",
+      "docsDir": "docs/protocols/rapid-response-mngs-protocols",
+      "type": "docx",
+      "extraCss": "body, p, h1, h2, font, td, th, li { font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif !important; }"
+    },
+    {
+      "source": "resources/slides/DL2_Intro to CZ ID.pptx",
+      "docsDir": "docs/slides/dl2-intro-to-czid",
+      "type": "pptx"
+    },
+    {
+      "source": "resources/worksheets/3. Illumina RNA Library Prep Worksheet Template.xlsx",
+      "docsDir": "docs/worksheets/illumina-rna-library-prep-worksheet",
+      "type": "xlsx-interactive",
+      "sheet": "Protocol"
+    },
+    {
+      "source": "resources/spreadsheets/5. Library Pooling Calculations.xlsx",
+      "docsDir": "docs/spreadsheets/library-pooling-calculations",
+      "type": "xlsx-static"
+    }
+  ]
+}
