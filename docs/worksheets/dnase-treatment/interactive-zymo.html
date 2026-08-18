@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DNase Treatment — Zymo (Interactive)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../../assets/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="home" href="../../index.html">Rapid Response Resources</a>
+    <span class="crumb">/ Worksheets / DNase Treatment</span>
+  </div>
+</header>
+<main>
+  <div class="resource-header">
+    <div>
+      <h1>DNase Treatment</h1>
+      <div class="meta">Live calculator (Zymo DNase I) · edit "X =" to rescale reagent volumes</div>
+    </div>
+    <a class="btn" href="https://raw.githubusercontent.com/gowtham-thakku/rapid-reponse-resources/main/resources/worksheets/2.%20DNase%20Treatment.xlsx" download="2. DNase Treatment.xlsx">Download original .xlsx</a>
+  </div>
+  <div class="tabs">
+    <a href="index.html">Static view</a>
+    <a href="interactive-zymo.html" class="active">Zymo DNase I calculator</a>
+    <a href="interactive-qiagen.html">Qiagen DNase I calculator</a>
+  </div>
+  <div id="sheet-container"></div>
+</main>
+<script src="../../assets/vendor/hyperformula.full.min.js"></script>
+<script src="../../assets/calc-sheet.js"></script>
+<script>
+  renderCalcSheet("sheet-container", "sheet-data-zymo.json");
+</script>
+</body>
+</html>

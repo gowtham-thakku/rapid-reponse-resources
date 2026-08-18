@@ -67,15 +67,17 @@ def convert_pptx(src_path, docs_dir):
     print(f"  -> {docs_dir / 'slides.pdf'}")
 
 
-def convert_xlsx_interactive(src_path, docs_dir, sheet_name):
+def convert_xlsx_interactive(src_path, docs_dir, entry):
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import extract_sheet
 
-    data = extract_sheet.extract(str(src_path), sheet_name)
-    out_path = docs_dir / "sheet-data.json"
-    with open(out_path, "w") as f:
-        json.dump(data, f, indent=0)
-    print(f"  -> {out_path} ({len(data['cells'])} cells, {len(data['merges'])} merges)")
+    sheets = entry.get("sheets") or [{"name": entry["sheet"], "output": "sheet-data.json"}]
+    for s in sheets:
+        data = extract_sheet.extract(str(src_path), s["name"])
+        out_path = docs_dir / s["output"]
+        with open(out_path, "w") as f:
+            json.dump(data, f, indent=0)
+        print(f"  -> {out_path} ({len(data['cells'])} cells, {len(data['merges'])} merges)")
     # also refresh the flattened "static view" tab
     convert_docx_or_xlsx_static(src_path, docs_dir, extra_css=None)
 
@@ -96,7 +98,7 @@ def run_entry(entry):
     elif entry["type"] == "xlsx-static":
         convert_docx_or_xlsx_static(src_path, docs_dir, entry.get("extraCss"))
     elif entry["type"] == "xlsx-interactive":
-        convert_xlsx_interactive(src_path, docs_dir, entry["sheet"])
+        convert_xlsx_interactive(src_path, docs_dir, entry)
     else:
         raise ValueError(f"unknown type: {entry['type']}")
 
