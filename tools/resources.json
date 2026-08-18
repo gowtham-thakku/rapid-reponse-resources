@@ -47,6 +47,55 @@
       "source": "resources/slides/Intro to Nanopore Sequencing.pptx",
       "docsDir": "docs/slides/intro-to-nanopore-sequencing",
       "type": "pptx"
+    },
+    {
+      "source": "resources/worksheets/2. DNase Treatment.xlsx",
+      "docsDir": "docs/worksheets/dnase-treatment",
+      "type": "xlsx-interactive",
+      "sheets": [
+        { "name": "Zymo DNase I", "output": "sheet-data-zymo.json" },
+        { "name": "Qiagen DNase I", "output": "sheet-data-qiagen.json" }
+      ]
+    },
+    {
+      "source": "resources/slides/4.RNA and DNA library preparation for mNGS-needs substantial updating.pptx",
+      "docsDir": "docs/slides/rna-dna-library-preparation-for-mngs",
+      "type": "pptx"
+    },
+    {
+      "source": "resources/slides/5. Library prep QC.pptx",
+      "docsDir": "docs/slides/library-prep-qc",
+      "type": "pptx"
+    },
+    {
+      "source": "resources/slides/6. Sequencing run QC.pptx",
+      "docsDir": "docs/slides/sequencing-run-qc",
+      "type": "pptx"
+    },
+    {
+      "source": "resources/slides/7a. iSeq 100 Loading_master.pptx",
+      "docsDir": "docs/slides/iseq-100-loading",
+      "type": "pptx"
+    },
+    {
+      "source": "resources/slides/7b. MiSeq Loading_master.pptx",
+      "docsDir": "docs/slides/miseq-loading",
+      "type": "pptx"
+    },
+    {
+      "source": "resources/slides/Library Prep for ONT.pptx",
+      "docsDir": "docs/slides/library-prep-for-ont",
+      "type": "pptx"
+    },
+    {
+      "source": "resources/slides/Library Prep QC for ONT.pptx",
+      "docsDir": "docs/slides/library-prep-qc-for-ont",
+      "type": "pptx"
+    },
+    {
+      "source": "resources/slides/MinION Loading and Sequencing Run Setup.pptx",
+      "docsDir": "docs/slides/minion-loading-and-sequencing-run-setup",
+      "type": "pptx"
     }
   ]
 }

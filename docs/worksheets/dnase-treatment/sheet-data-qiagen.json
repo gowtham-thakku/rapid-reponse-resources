@@ -1,0 +1,281 @@
+{
+"maxRow": 19,
+"maxCol": 5,
+"cells": {
+"0,0": {
+"v": "DNase treatment",
+"bold": true
+},
+"1,0": {
+"v": "Reagent",
+"bold": true
+},
+"1,1": {
+"v": "87.5 \u00b5L sample"
+},
+"1,2": {
+"v": "20 \u00b5L sample"
+},
+"1,3": {
+"v": "X 20\u00b5L rxns"
+},
+"2,3": {
+"v": "X ="
+},
+"2,4": {
+"v": 30.0,
+"fill": "#FFFF00"
+},
+"3,1": {
+"v": "vol stock (\u00b5L)",
+"bold": true
+},
+"3,2": {
+"v": "vol stock (\u00b5L)",
+"bold": true
+},
+"3,3": {
+"v": "vol stock (\u00b5L)",
+"bold": true
+},
+"4,0": {
+"v": "TNA sample"
+},
+"4,1": {
+"v": 87.5
+},
+"4,2": {
+"v": 20.0
+},
+"4,3": {
+"v": "20 each"
+},
+"5,0": {
+"v": "RDD Buffer (Qiagen)",
+"fill": "#F4CCCC"
+},
+"5,1": {
+"v": 10.0,
+"fill": "#F4CCCC"
+},
+"5,2": {
+"f": "=B6*C5/B5",
+"cached": 2.285714286,
+"fill": "#F4CCCC"
+},
+"5,3": {
+"f": "=C6*$E$3*1.1",
+"cached": 75.42857143,
+"fill": "#F4CCCC"
+},
+"6,0": {
+"v": "DNase I (Qiagen)",
+"fill": "#F4CCCC"
+},
+"6,1": {
+"v": 2.5,
+"fill": "#F4CCCC"
+},
+"6,2": {
+"f": "=B7*C6/B6",
+"cached": 0.5714285714,
+"fill": "#F4CCCC"
+},
+"6,3": {
+"f": "=C7*$E$3*1.1",
+"cached": 18.85714286,
+"fill": "#F4CCCC"
+},
+"7,0": {
+"v": "Master Mix volume",
+"fill": "#EA9999"
+},
+"7,1": {
+"f": "=sum(B6:B7)",
+"cached": 12.5,
+"fill": "#EA9999"
+},
+"7,2": {
+"f": "=B8*C7/B7",
+"cached": 2.857142857,
+"fill": "#EA9999"
+},
+"7,3": {
+"f": "=C8*$E$3*1.1",
+"cached": 94.28571429,
+"fill": "#EA9999"
+},
+"8,0": {
+"v": "Total volume",
+"bold": true
+},
+"8,1": {
+"f": "=sum(B5:B7)",
+"cached": 100,
+"bold": true
+},
+"8,2": {
+"f": "=sum(C5:C7)",
+"cached": 22.85714286,
+"bold": true
+},
+"8,3": {
+"v": "22.86 each",
+"bold": true
+},
+"9,0": {
+"v": "Pink = Reagents to add to master mix",
+"fill": "#F4CCCC"
+},
+"9,3": {
+"v": "Add 2.86 \u00b5L mix to TNA sample",
+"fill": "#F4CCCC"
+},
+"11,0": {
+"v": "Incubate for 30min at RT\nDo a SPRI clean-up as follows"
+},
+"12,0": {
+"v": "SPRI Bead Clean-up",
+"bold": true
+},
+"13,0": {
+"v": "SPRI bead ratio:"
+},
+"13,1": {
+"v": 2.0
+},
+"14,0": {
+"v": "SPRI to add (per half rxn):"
+},
+"14,1": {
+"f": "=B14*C9",
+"cached": 45.71428571
+},
+"14,2": {
+"v": "\u00b5L"
+},
+"15,0": {
+"v": "Total SPRI bead volume:"
+},
+"15,1": {
+"f": "=B15*E3",
+"cached": 1371.428571
+},
+"15,2": {
+"v": "\u00b5L"
+},
+"16,0": {
+"v": "Elution volume (per half rxn):"
+},
+"16,1": {
+"v": 12.0
+},
+"16,2": {
+"v": "\u00b5L"
+},
+"17,0": {
+"v": "Aspiration volume (per half rxn):"
+},
+"17,1": {
+"v": 10.0
+},
+"17,2": {
+"v": "\u00b5L"
+},
+"18,0": {
+"v": "\nSPRI clean-up protocol:\n\n*allow beads to sit in RT for 30 mins prior. Ensure you have enough 80% ethanol.\n\n1. Add room temperature beads to rxn. Mix well by pipetting up and down 10 times.\n2. Incubate for 5 mins at room temperature.\n3. Place samples on magnetic rack, and incubate for 5 mins on the rack.\n4. Remove supernatant and add 200uL of 80% EtOH to samples while on the magnetic rack. \n5. Incubate at room temperature for 30s and remove the supernatant.\n6. Repeat EtOH wash step for a total of 2 times.\n7. Air dry the beads for 5 mins while on the magnetic rack.\n8. Remove tube from magnetic rack. Elute DNA from beads into nuclease free water (can also use 0.1x TE Buffer, 10mM Tris-HCl)\n9. Pipette mix and incubate for 2 mins at room temperature off the magnetic rack.\n10. Place on magnetic rack until solution is clear, ~ 5 mins.\n11. Aspirate supernatant and transfer to a clean nuclease free PCR tube."
+}
+},
+"merges": [
+{
+"r1": 7,
+"c1": 3,
+"r2": 7,
+"c2": 4
+},
+{
+"r1": 5,
+"c1": 3,
+"r2": 5,
+"c2": 4
+},
+{
+"r1": 9,
+"c1": 3,
+"r2": 9,
+"c2": 4
+},
+{
+"r1": 6,
+"c1": 3,
+"r2": 6,
+"c2": 4
+},
+{
+"r1": 1,
+"c1": 3,
+"r2": 1,
+"c2": 4
+},
+{
+"r1": 1,
+"c1": 0,
+"r2": 3,
+"c2": 0
+},
+{
+"r1": 9,
+"c1": 1,
+"r2": 9,
+"c2": 2
+},
+{
+"r1": 18,
+"c1": 0,
+"r2": 18,
+"c2": 4
+},
+{
+"r1": 4,
+"c1": 3,
+"r2": 4,
+"c2": 4
+},
+{
+"r1": 0,
+"c1": 0,
+"r2": 0,
+"c2": 4
+},
+{
+"r1": 3,
+"c1": 3,
+"r2": 3,
+"c2": 4
+},
+{
+"r1": 1,
+"c1": 1,
+"r2": 2,
+"c2": 1
+},
+{
+"r1": 12,
+"c1": 0,
+"r2": 12,
+"c2": 4
+},
+{
+"r1": 1,
+"c1": 2,
+"r2": 2,
+"c2": 2
+},
+{
+"r1": 8,
+"c1": 3,
+"r2": 8,
+"c2": 4
+}
+]
+}
