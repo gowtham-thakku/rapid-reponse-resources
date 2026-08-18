@@ -1,6 +1,6 @@
 # Rapid Response Resources
 
-Resources for metagenomics sequencing: training slide decks, lab worksheets, and experimental calculation spreadsheets.
+Resources for metagenomics sequencing, covering wet and dry lab methods for Illumina and Nanopore (ONT).
 
 <table>
 <tr>
