@@ -47,6 +47,11 @@
       "source": "resources/slides/Intro to Nanopore Sequencing.pptx",
       "docsDir": "docs/slides/intro-to-nanopore-sequencing",
       "type": "pptx"
+    },
+    {
+      "source": "resources/worksheets/2. DNase Treatment.xlsx",
+      "docsDir": "docs/worksheets/dnase-treatment",
+      "type": "xlsx-static"
     }
   ]
 }
